@@ -4,3 +4,5 @@
 2. 프로젝트 폴더에 진입 : `cd project`
 3. nodejs 프로젝트 생성 : `npm init -y`
 4. 부모 폴더로 이동 : ``cd ..`
+5. git hub 에 push : `git add`, `git commit`, `git push`
+6. 왼쪽 프로젝트목록에서 프로젝트 폴더 우클릭, 터미널 열기
