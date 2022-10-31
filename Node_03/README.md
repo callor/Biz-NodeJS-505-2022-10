@@ -45,3 +45,16 @@ export default app;
 - router 모듈을 분리하여 각 역할별도 처리하도록 한다
 
 1. `routes` 폴더를 생성
+2. router module 파일 작성 : `root.js`, `user.js` 작성
+
+```
+import express from "express";
+const router = express.Router();
+router.get("/", ()=>{  })
+export default router;
+```
+
+### MySQL 연동
+
+- mysql2 dependency 설정 확인 및 설치: `npm install -sava mysql2`
+- mysql 연동을 위한 module 생성 : `modules/mysqlDB.js` 파일 생성
