@@ -89,6 +89,7 @@ router.get("/country", (req, res) => {
 // 두가지 Req 를 처리하기 위하여
 // RequestMapping("/country/....")을 배열로 선언하여
 // 두가지 Req 를 일단 모두 받도록 처리한다.
+// Multi RequestMapping 이라고 한다.
 router.get(["/country/:start/:end", "/country/:end"], (req, res) => {
   // 변수가 2개일때, 또는 변수가 1개일때 어떻게 처리할 것인가
   // let start = req.params.start;
@@ -124,8 +125,34 @@ router.get(["/country/:start/:end", "/country/:end"], (req, res) => {
     res.json(result);
   });
 });
-
-router.get("/gnp/:start?/:end?", (req, res) => {});
+// 선택적 파라메터 RequestMapping
+router.get("/gnp/:start?/:end?", (req, res) => {
+  let { start, end } = req.params;
+  console.log(start, end);
+  // city/gnp/100 처럼 1개의 데이터만 전송을 하면
+  // start = 100, end = undefined 가 담기게 된다
+  // 일단 end 값이 undefined 이면 0으로 세팅을 한다
+  end = end || 0;
+  // city/gnp/100 처럼 1개의 데이만 전송을 했다면
+  // start = 100, end = 0 으로 세팅이 될것이다
+  console.log(start, end);
+  // start 와 end 가 서로 바뀐상태
+  // start 와 end 를 서로 교환하기
+  if (end === 0) {
+    // const _t = start;
+    // start = end;
+    // end = _t;
+    // XOR(배타적 논리연산, 같은값은 0, 다른값은 1인 논리연산)
+    // 을 이용한 두 변수의 값 교환하기(변수의 Swap)
+    start = start ^ end;
+    end = start ^ end;
+    start = start ^ end;
+  }
+  const sql = "SELECT * FROM country WHERE gnp BETWEEN ? AND ?";
+  mysql.execute(sql, [start, end], (err, result, field) => {
+    res.send(result);
+  });
+});
 
 // localhost:3000/city/도시이름 이라고 요청을 하면
 router.get("/:name", (req, res) => {
