@@ -11,10 +11,10 @@ app.use(logger("dev"));
 
 // express 에 포함된 미들웨어(Middleware, 중간자 도구) 설정
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join("./public")));
+app.use(express.static(path.join("public")));
 
-// project/views 폴더를 views 이름으로 세팅
-app.set("views", path.join("./views"));
+// PROJECT/views 폴더를 views 이름으로 세팅
+app.set("views", path.join("views"));
 app.set("view engine", "ejs");
 
 // RequestMapping 과 router 를 연결하기
