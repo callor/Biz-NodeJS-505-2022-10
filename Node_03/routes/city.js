@@ -83,6 +83,50 @@ router.get("/country", (req, res) => {
  * 이 두개의 요청을 한개의 router.get() 에서 처리
  */
 
+// http://localhost:3000/country/100/200 에 대한 응답
+// http://localhost:3000/country/100 처럼 요청을하면
+//    없는 URI 라고 거부(Not Found Error)
+// 두가지 Req 를 처리하기 위하여
+// RequestMapping("/country/....")을 배열로 선언하여
+// 두가지 Req 를 일단 모두 받도록 처리한다.
+router.get(["/country/:start/:end", "/country/:end"], (req, res) => {
+  // 변수가 2개일때, 또는 변수가 1개일때 어떻게 처리할 것인가
+  // let start = req.params.start;
+  // const end = req.params.end;
+  /**
+   * 객체의 구조분해
+   * req.params 에 있는 sub 속성들 중에서
+   * start, end 를 추출하여 같은 이름의 변수를 생성하고
+   * 그 변수에 값을 저장해 달라
+   */
+  let { start, end } = req.params;
+  console.log(start, end);
+  /**
+   * 현재 여기의 요청 처리는 start 변수와 end 변수를 전달받아
+   * 처리를 한다
+   * country/100/300 처럼 2개의 변수를 모두 전달하면
+   * start = 100, end = 300 의 값이 변수에 담기게 된다
+   *
+   * 만약
+   * country/100 처럼 1개의 변수만 전달하면
+   * start = undefined, end = 100 의 값이 변수에 담기게 된다
+   * 만약 start 가 undefined 이면 start = 0 으로 세팅하면 된다
+   *
+   */
+  // if (!start) {
+  //   start = 0;
+  // }
+  start = start || 0;
+
+  console.log(start, end);
+  const sql = "SELECT * FROM country WHERE gnp BETWEEN ? AND ?";
+  mysql.execute(sql, [start, end], (err, result, field) => {
+    res.json(result);
+  });
+});
+
+router.get("/gnp/:start?/:end?", (req, res) => {});
+
 // localhost:3000/city/도시이름 이라고 요청을 하면
 router.get("/:name", (req, res) => {
   const ct_name = req.params.name;
