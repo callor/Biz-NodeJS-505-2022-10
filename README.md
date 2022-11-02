@@ -9,4 +9,4 @@
 
 ## 프로젝트 목록
 
-### :bear: 학사정보 프로젝트
+### :bear: [학사정보 프로젝트](https://github.com/callor/Biz_NodeJS_2022_10_505/tree/master/Node_06)
