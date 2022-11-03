@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <article class="student input">
+    <form><input name="st_name" placeholder="이름.. 입력후 Enter" /></form>
+  </article>
+  <table class="student list">
+    <thead>
+      <tr>
+        <th>학번</th>
+        <th>이름</th>
+        <th>학과</th>
+        <th>학년</th>
+        <th>전화번호</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach( (st)=>{ %>
+      <tr>
+        <td><%= st.st_num %></td>
+        <td><%= st.st_name %></td>
+        <td><%= st.st_dept %></td>
+        <td><%= st.st_grade %></td>
+        <td><%= st.st_tel %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</html>
