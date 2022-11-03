@@ -77,6 +77,7 @@ section.main article {
   overflow: auto;
 }
 
+.dash,
 .student {
   width: 95%;
   margin: 10px auto;
@@ -102,6 +103,10 @@ input:hover {
   background-color: #eee;
 }
 
-article.student.input input {
+article.student.search form {
   width: 50%;
+  text-align: center;
+}
+article.student.search form input {
+  width: 90%;
 }

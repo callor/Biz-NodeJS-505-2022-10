@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include ("../includes/head.ejs") %>
+    <style>
+      section.main {
+        width: 95%;
+        margin: 0px auto;
+      }
+      .student.search {
+        display: flex;
+        justify-content: center;
+      }
+
+      .student.insert {
+        text-align: right;
+        padding: 0.8em;
+      }
+
+      .student.insert a {
+        padding: 6px 10px;
+        margin: 5px;
+        background-color: green;
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("../includes/header.ejs") %> <% if(body == "list") { %>
+    <article class="student search">
+      <form><input name="st_name" placeholder="이름.. 입력후 Enter" /></form>
+    </article>
+    <% } %>
+    <section class="main">
+      <article>
+        <% if(body == "list") { %> <%- include ("./st_list.ejs") %> <% } %> <%
+        if(body == "write") { %> <%- include ("./st_write.ejs") %> <% } %>
+      </article>
+    </section>
+    <% if(body == "list") { %>
+    <article class="student insert">
+      <a href="/student/insert">학생 정보 추가</a>
+    </article>
+    <% } %> <%- include ("../includes/footer.ejs") %>
+  </body>
+</html>
