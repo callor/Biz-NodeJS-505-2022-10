@@ -1,0 +1,49 @@
+form {
+  width: 70%;
+  margin: 10px auto;
+}
+
+fieldset {
+  border: 1px solid #bbb;
+  border-radius: 10px;
+}
+
+legend {
+  text-align: center;
+  padding: 5px;
+  font-size: large;
+  font-weight: 900;
+}
+
+form div {
+  display: flex;
+}
+
+form label {
+  width: 30%;
+  text-align: right;
+  margin: 5px;
+  padding: 8px;
+  color: rgb(46, 98, 203);
+  font-weight: 900;
+}
+
+form input {
+  width: 60%;
+}
+
+button.submit {
+  color: white;
+  background-color: blue;
+  padding: 12px 2em;
+  margin: 5px 0px 10px 0px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #bbb;
+  color: black;
+}

@@ -1,0 +1,40 @@
+/* 
+main.css 에서 이미 section.main 을 설정하고 있지만
+student 정보를 표현하는 화면에서 
+width와 margin 부분을 다시 재정의
+*/
+section.main {
+  width: 95%;
+  margin: 0px auto;
+}
+
+.student {
+  width: 95%;
+  margin: 10px auto;
+}
+
+article.student.search form {
+  width: 50%;
+  text-align: center;
+}
+article.student.search form input {
+  width: 90%;
+}
+
+.student.search {
+  display: flex;
+  justify-content: center;
+}
+
+.student.insert {
+  text-align: right;
+  padding: 0.8em;
+}
+
+.student.insert a {
+  padding: 6px 10px;
+  margin: 5px;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+}

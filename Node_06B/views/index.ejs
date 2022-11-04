@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include ("includes/head.ejs") %>
+    <style>
+      /*
+      dash box 를 flex 로 설정하고
+      (내부의 tag 들이 가로 정렬)
+      more tag 의 margin-left:auto 설정하여 오른쪽으로 밀치기
+      more tag opacity 를 0 으로 하여 보이지 않도록 감추기
+
+      dash box 에 마우스가 hover 되면
+      more tag 의 opacity 를 1로하여 다시 나타나도록
+
+      이 효과를 부드럽게 하기위하여 transition 을 설정
+      */
+      .dash.box {
+        display: flex;
+        padding: 0.6em;
+        cursor: pointer;
+      }
+      .dash.box .more {
+        margin-left: auto;
+        opacity: 0;
+        transition: 0.5s;
+      }
+
+      .dash.box:hover .more {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("includes/header.ejs") %>
+    <section class="main">
+      <article>
+        <div class="dash box student">
+          <h3 class="title">학생정보</h3>
+          <span class="more">더보기 + </span>
+        </div>
+        <%- include("student/st_list.ejs") %>
+      </article>
+      <article></article>
+      <article></article>
+    </section>
+    <%- include ("includes/footer.ejs") %>
+  </body>
+  <script>
+    const st_box = document.querySelector(".dash.box.student");
+    st_box?.addEventListener("click", () => {
+      document.location.href = "/student";
+    });
+  </script>
+</html>

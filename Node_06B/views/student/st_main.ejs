@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include ("../includes/head.ejs") %>
+    <link ref="stylesheet" href="/css/student.css" />
+  </head>
+  <body>
+    <%- include ("../includes/header.ejs") %> <% if(body == "list") { %>
+    <article class="student search">
+      <form>
+        <input name="st_name" placeholder="학생이름을 입력후 Enter" />
+      </form>
+    </article>
+    <% } %>
+    <section class="main">
+      <article>
+        <% if(body == "list") { %> <%- include ("./st_list.ejs") %> <% } %> <%
+        if(body == "write") { %> <%- include ("./st_write.ejs") %> <% } %>
+      </article>
+    </section>
+    <% if(body == "list") { %>
+    <article class="student insert">
+      <a href="/student/insert">학생 정보 추가</a>
+    </article>
+    <% } %> <%- include ("../includes/footer.ejs") %>
+  </body>
+</html>
