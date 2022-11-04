@@ -1,0 +1,32 @@
+<script src="/js/st_detail.js"></script>
+<article class="student detail">
+  <div class="student item">
+    <div>학번</div>
+    <div><%= student.st_num %></div>
+  </div>
+  <div class="student item">
+    <div>이름</div>
+    <div><%= student.st_name %></div>
+  </div>
+  <div class="student item">
+    <div>학과</div>
+    <div><%= student.st_dept %></div>
+  </div>
+  <div class="student item">
+    <div>학년</div>
+    <div><%= student.st_grade %></div>
+  </div>
+  <div class="student item">
+    <div>전화번호</div>
+    <div><%= student.st_tel %></div>
+  </div>
+  <div class="student item">
+    <div>주소</div>
+    <div><%= student.st_addr %></div>
+  </div>
+  <div class="student btn-box" data-st_num="<%- student.st_num %>">
+    <button class="st_update">수정</button>
+    <button class="st_delete">삭제</button>
+    <button class="st_list">리스트</button>
+  </div>
+</article>

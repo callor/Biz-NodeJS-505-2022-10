@@ -16,7 +16,8 @@
     <section class="main">
       <article>
         <% if(body == "list") { %> <%- include ("./st_list.ejs") %> <% } %> <%
-        if(body == "write") { %> <%- include ("./st_write.ejs") %> <% } %>
+        if(body == "write") { %> <%- include ("./st_write.ejs") %> <% } %> <%
+        if(body == "detail") { %> <%- include ("./st_detail.ejs") %> <% } %>
       </article>
     </section>
     <% if(body == "list") { %>

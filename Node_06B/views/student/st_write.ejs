@@ -2,7 +2,8 @@
   <fieldset>
     <legend>학생정보</legend>
     <div>
-      <label for="st_num">학번</label><input name="st_num" id="st_num" />
+      <label for="st_num">학번</label>
+      <input name="st_num" id="st_num" />
     </div>
     <div>
       <label for="st_name">이름</label><input name="st_name" id="st_name" />
@@ -26,4 +27,18 @@
       <button type="button" class="btn submit">저장</button>
     </div>
   </fieldset>
+  <script>
+    const st_num = `<%- student.st_num %>`;
+    if (st_num) {
+      const numInput = document.querySelector("input[name='st_num']");
+      numInput.setAttribute("readonly", "readonly");
+      // numInput.value = st_num;
+    }
+    const student = JSON.parse(`<%- JSON.stringify(student) %>`);
+    const stInput = document.querySelectorAll("input");
+    const stItems = Object.keys(student);
+    for (let i = 0; i < stItems.length; i++) {
+      stInput[i].value = student[`${stInput[i].name}`];
+    }
+  </script>
 </form>

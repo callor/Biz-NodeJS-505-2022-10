@@ -38,3 +38,64 @@ article.student.search form input {
   color: white;
   text-decoration: none;
 }
+
+article.student.detail {
+  width: 80%;
+  margin: 10px auto;
+}
+
+div.student.item {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+div.student.item div {
+  border: 1px solid #777;
+  margin: 5px;
+  padding: 8px;
+}
+
+div.student.item div:nth-of-type(1) {
+  width: 30%;
+  background-color: #aaa;
+  font-weight: 900;
+  text-shadow: 1px 1px 1px white;
+  text-align: right;
+}
+
+div.student.item div:nth-of-type(2) {
+  width: 60%;
+  text-align: left;
+}
+
+div.student.btn-box {
+  text-align: center;
+}
+
+div.student.btn-box button {
+  padding: 12px 2em;
+  margin: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+div.student button.st_update {
+  background-color: blue;
+  color: white;
+}
+div.student button.st_delete {
+  background-color: orange;
+  color: white;
+}
+
+div.student button.st_list {
+  background-color: green;
+  color: white;
+}
+
+button:hover {
+  background-color: #ccc !important;
+  color: black !important;
+}
