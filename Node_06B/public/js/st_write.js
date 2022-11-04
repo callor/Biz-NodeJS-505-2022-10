@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btnSubmit = document.querySelector("button.submit");
-  btnSubmit.addEventListener("click", () => {
+  btnSubmit?.addEventListener("click", () => {
     const inputs = document.querySelectorAll("form.st_input input");
 
     const st_num = inputs[0];
