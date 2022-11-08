@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * 그래서 ES6 에서 탄생한 새로운 for() 명령문이다
      *      for(요소 of 배열) {}
      */
-    for (let tag of todayInputs) {
+    for (const [index, tag] of todayInputs.entries()) {
       const value = tag.value;
       if (!value) {
         alert(`값을 입력해주세요\n"${tag.title}"`);
