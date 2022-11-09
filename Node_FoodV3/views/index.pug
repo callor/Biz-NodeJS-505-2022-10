@@ -1,0 +1,46 @@
+//- layout.pug 를 확장하여 함께 rendering 하겠다
+extends layout
+
+//- layout.pug 의 block content 항목에 아래의 코드를 붙여서 rendering
+block content
+  style.
+
+
+  header
+    h1 오늘은 꼭 굶어야지
+    p 나는 다이어트에 성공할수 있어~~~
+  section.main#main
+    table.today 
+      thead 
+        th 날짜
+        th 시각
+        th 음식명
+        th 섭취량
+        th 단위칼로리
+        th 총칼로리
+      tbody 
+        //- each 요소 in 배열
+        each today in todays
+          tr(data-seq=`${today.t_seq}`)
+            td= today.t_date 
+            td= today.t_time
+            td= today.t_content
+            td= today.t_qty
+            td= today.t_cal
+            td= today.t_qty * today.t_cal
+        form(method="POST").today
+          input(name="t_seq" value=`$today.t_seq}`)
+          tr 
+            td
+              input(name="t_date" placeholder="섭취일자를 입력하세요" title="섭취일자")
+            td
+              input(name="t_time" placeholder="섭취시각을 입력하세요" title="섭취시각")
+            td
+              input(name="t_content" placeholder="음식명" title="음식명")
+            td
+              input(name="t_qty" type="number",placeholder="섭취량" title="섭취량")
+            td
+              input(name="t_cal" type="number",placeholder="칼로리" title="칼로리")
+            td
+              button(type="button").today.input 추가
+              button(type="reset").today.reset 새로작성
