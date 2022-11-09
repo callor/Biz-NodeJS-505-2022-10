@@ -10,6 +10,12 @@ th {
   border-top: 1px solid #bbb;
   padding: 12px 16px;
   white-space: nowrap;
+  /* 
+  text 를 더블클릭, 드래그 할때 text 가 선택되지 않도록 하기
+  데이터를 표시하는 영역, label, span 등에서 사용한다
+  일종의 간단한 복사 방지 역할도 수행한다
+  */
+  user-select: none;
 }
 
 td {
@@ -29,13 +35,31 @@ button.today {
   border-radius: 5px;
   padding: 8px 16px;
   margin: 5px;
+  /* system 기본 font size 와 1:1 */
+  font-size: 12px;
 }
 button.today.reset {
   background-color: orange;
   color: black;
 }
 
+button.today.update {
+  background-color: green;
+  font-size: 0;
+}
+/* 
+tag 에 부착하는 가상 tag 클래스 
+before, after
+*/
+button.today.update:before {
+  font-size: 12px;
+  content: "변경";
+}
+
 button.today:hover {
   background-color: #bbb;
   color: black;
+}
+input[name="t_seq"] {
+  display: none;
 }

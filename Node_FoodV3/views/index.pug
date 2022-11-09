@@ -22,14 +22,14 @@ block content
         //- each 요소 in 배열
         each today in todays
           tr(data-seq=`${today.t_seq}`)
-            td= today.t_date 
-            td= today.t_time
-            td= today.t_content
-            td= today.t_qty
-            td= today.t_cal
+            td(title="t_date")= today.t_date 
+            td(title="t_time")= today.t_time
+            td(title="t_content")= today.t_content
+            td(title="t_qty")= today.t_qty
+            td(title="t_cal")= today.t_cal
             td= today.t_qty * today.t_cal
         form(method="POST").today
-          input(name="t_seq" value=`$today.t_seq}`)
+          input(name="t_seq",value="0")
           tr 
             td
               input(name="t_date" placeholder="섭취일자를 입력하세요" title="섭취일자")
