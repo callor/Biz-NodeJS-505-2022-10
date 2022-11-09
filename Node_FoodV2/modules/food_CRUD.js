@@ -41,6 +41,26 @@ const TD_CAL_SUM_LIST = `
     ORDER BY (t_qty * t_cal) DESC
 `;
 
+/**
+ *
+ * insert 를 먼저 실행보아라
+ * 그런데 만약 t_seq 칼럼의 값과 같은 PK 가 있으면 오류가 생길텐데
+ *  (DUPLICAT KEY)
+ * 그러면 UPDATE 를 실행하라
+ *
+ */
+const TD_INSERT_OR_UPDATE = `
+    INSERT INTO tbl_todayV2(t_seq,t_date, t_time, t_content, t_qty, t_cal)
+        VALUES(?,?,?,?,?,?)
+    ON DUPLICATE KEY UPDATE
+        t_seq = ?,
+        t_date = ?,
+        t_time = ?,
+        t_content = ?,
+        t_qty = ?,
+        t_cal = ?
+`;
+
 export {
   TD_SELECT_ALL,
   TD_FIND_BY_ID,
@@ -50,4 +70,5 @@ export {
   TD_DATE_LIST,
   TD_CAL_SUM_LIST,
   TD_CAL_LIST,
+  TD_INSERT_OR_UPDATE,
 };

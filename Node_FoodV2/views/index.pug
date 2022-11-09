@@ -4,18 +4,8 @@ extends layout
 //- layout.pug 의 block content 항목에 아래의 코드를 붙여서 rendering
 block content
   style.
-    table.today {
-      width:80%;
-      border-collapse : collapse;
-      margin:20px auto;
-    }
-    td, th {
-      text-align:left;
-      border-bottom : 1px solid #bbb;
-      border-top : 1px solid #bbb;
-      padding:12px 16px;
-      white-space:nowrap;
-    }
+
+
   header
     h1 오늘은 꼭 굶어야지
     p 나는 다이어트에 성공할수 있어~~~
@@ -52,3 +42,4 @@ block content
               input(name="t_cal" type="number",placeholder="칼로리" title="칼로리")
             td
               button(type="button").today.input 추가
+              button(type="reset").today.reset 새로작성

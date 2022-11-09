@@ -7,6 +7,7 @@ import {
   TD_DATE_LIST,
   TD_CAL_SUM_LIST,
   TD_CAL_LIST,
+  TD_INSERT_OR_UPDATE,
 } from "../modules/food_CRUD.js";
 import mysqlConn from "../modules/mysqlDB.js";
 
@@ -21,12 +22,15 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/", (req, res) => {
-  const { t_date, t_time, t_content, t_qty, t_cal } = req.body;
+  let { t_seq, t_date, t_time, t_content, t_qty, t_cal } = req.body;
+  console.log(t_seq);
+  t_seq = t_seq || 0;
 
   mysqlConn.execute(
-    TD_INSERT,
-    [t_date, t_time, t_content, t_qty, t_cal],
+    TD_INSERT_OR_UPDATE,
+    [t_seq, t_date, t_time, t_content, t_qty, t_cal],
     (e, result, f) => {
+      console.log(e);
       res.redirect("/");
     }
   );
