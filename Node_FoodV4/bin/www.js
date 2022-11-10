@@ -1,9 +1,9 @@
 /**
  * http Server Setting
  */
-import http from 'http';
-import app from './app.js';
-import createDebug from 'debug';
+import http from "http";
+import app from "./app.js";
+import createDebug from "debug";
 
 // port number check
 const normalizePort = (val) => {
@@ -21,8 +21,7 @@ const normalizePort = (val) => {
   return false;
 };
 
-
-const debug = createDebug('node-schoolv2:server');
+const debug = createDebug("node-schoolv2:server");
 const port = normalizePort(process.env.PORT || "3000");
 
 /**
@@ -31,8 +30,7 @@ const port = normalizePort(process.env.PORT || "3000");
  */
 const server = http.createServer(app);
 
-
-server.listen(port);
+server.listen(port, "0.0.0.0");
 
 // Event listener for HTTP server "error" event.
 server.on("error", (error) => {

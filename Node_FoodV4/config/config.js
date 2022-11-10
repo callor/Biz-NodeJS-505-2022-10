@@ -10,6 +10,7 @@ export default {
     database: "foodDB",
     host: "127.0.0.1",
     dialect: "mysql",
+    logging: true,
   },
   test: {
     username: "root",
