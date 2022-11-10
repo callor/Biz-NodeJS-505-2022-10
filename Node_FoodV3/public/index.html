@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>다이어트 성공</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/input.css" />
+    <script src="/js/main.js"></script>
+    <script src="/js/input.js"></script>
+  </head>
+  <body>
+    <style></style>
+    <header>
+      <h1>오늘은 꼭 굶어야지</h1>
+      <p>나는 다이어트에 성공할수 있어~~~</p>
+    </header>
+    <section class="main" id="main">
+      <table class="today">
+        <thead>
+          <th>날짜</th>
+          <th>시각</th>
+          <th>음식명</th>
+          <th>섭취량</th>
+          <th>단위칼로리</th>
+          <th>총칼로리</th>
+        </thead>
+        <tbody>
+          <tr data-seq="5">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">16:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">30</td>
+            <td title="t_cal">1200</td>
+            <td>36000</td>
+          </tr>
+          <tr data-seq="7">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">16:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">3</td>
+            <td title="t_cal">1200</td>
+            <td>3600</td>
+          </tr>
+          <tr data-seq="10">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">16:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">3</td>
+            <td title="t_cal">1200</td>
+            <td>3600</td>
+          </tr>
+          <tr data-seq="6">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">16:14:00</td>
+            <td title="t_content">빅맥2000</td>
+            <td title="t_qty">10</td>
+            <td title="t_cal">12000</td>
+            <td>120000</td>
+          </tr>
+          <tr data-seq="4">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">15:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">2</td>
+            <td title="t_cal">1200</td>
+            <td>2400</td>
+          </tr>
+          <tr data-seq="9">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">15:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">2</td>
+            <td title="t_cal">1200</td>
+            <td>2400</td>
+          </tr>
+          <tr data-seq="1">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">14:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">1</td>
+            <td title="t_cal">1200</td>
+            <td>1200</td>
+          </tr>
+          <tr data-seq="2">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">14:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">1</td>
+            <td title="t_cal">1200</td>
+            <td>1200</td>
+          </tr>
+          <tr data-seq="3">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">14:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">50</td>
+            <td title="t_cal">1200</td>
+            <td>60000</td>
+          </tr>
+          <tr data-seq="8">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">14:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">50</td>
+            <td title="t_cal">1200</td>
+            <td>60000</td>
+          </tr>
+          <tr data-seq="11">
+            <td title="t_date">2022-11-08</td>
+            <td title="t_time">14:20:00.000</td>
+            <td title="t_content">빅맥10000</td>
+            <td title="t_qty">10</td>
+            <td title="t_cal">1200</td>
+            <td>12000</td>
+          </tr>
+          <tr data-seq="13">
+            <td title="t_date">2</td>
+            <td title="t_time">2</td>
+            <td title="t_content">2</td>
+            <td title="t_qty">2</td>
+            <td title="t_cal">2</td>
+            <td>4</td>
+          </tr>
+          <tr data-seq="12">
+            <td title="t_date">1</td>
+            <td title="t_time">1</td>
+            <td title="t_content">1</td>
+            <td title="t_qty">1</td>
+            <td title="t_cal">1</td>
+            <td>1</td>
+          </tr>
+          <form class="today" method="POST">
+            <input name="t_seq" value="0" />
+            <tr>
+              <td>
+                <input
+                  name="t_date"
+                  placeholder="섭취일자를 입력하세요"
+                  title="섭취일자"
+                />
+              </td>
+              <td>
+                <input
+                  name="t_time"
+                  placeholder="섭취시각을 입력하세요"
+                  title="섭취시각"
+                />
+              </td>
+              <td>
+                <input name="t_content" placeholder="음식명" title="음식명" />
+              </td>
+              <td>
+                <input
+                  name="t_qty"
+                  type="number"
+                  placeholder="섭취량"
+                  title="섭취량"
+                />
+              </td>
+              <td>
+                <input
+                  name="t_cal"
+                  type="number"
+                  placeholder="칼로리"
+                  title="칼로리"
+                />
+              </td>
+              <td>
+                <button class="today input" type="button">추가</button
+                ><button class="today reset" type="reset">새로작성</button>
+              </td>
+            </tr>
+          </form>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

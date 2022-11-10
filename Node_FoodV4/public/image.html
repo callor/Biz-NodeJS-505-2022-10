@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 홈페이지</title>
+    <style>
+      html {
+        height: 100vh;
+        width: 100vw;
+      }
+      body {
+        width: 100%;
+        height: 500%;
+        border: 1px solid blue;
+        background-image: url("./images/header.jpg");
+        background-size: 100% 100%;
+        background-position: center;
+        transition: 1s;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    window.addEventListener("scroll", () => {
+      const body = document.querySelector("body");
+      body.style.backgroundSize = 160 - +(window.pageYOffset / 12) + "%";
+    });
+  </script>
+</html>
