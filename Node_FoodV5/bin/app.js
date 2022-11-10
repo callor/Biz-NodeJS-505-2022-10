@@ -28,16 +28,16 @@ const app = express();
 // DB 접속 start
 // Callback 방식으로 사용하기
 // DB 연결을 기다리지 않고 Web APP Server 기능을 세팅하고 시작한다
-// DB.sequelize.sync().then((dbConn) => {
-//   console.log(dbConn.options.host, "DB 연결 OK~~~");
-//   console.log(dbConn.config.database, "에  연결");
-// });
+DB.sequelize.sync().then((dbConn) => {
+  console.log(dbConn.options.host, "DB 연결 OK~~~");
+  console.log(dbConn.config.database, "에  연결");
+});
 
 // Promise 방식으로 사용하기
 // DB 연결이 완료 될때까지 Web APP Server 세팅 및 시작을 보류한다
-const dbConn = await DB.sequelize.sync();
-console.log(dbConn.options.host, "DB 연결 OK~~~");
-console.log(dbConn.config.database, "에  연결");
+// const dbConn = await DB.sequelize.sync();
+// console.log(dbConn.options.host, "DB 연결 OK~~~");
+// console.log(dbConn.config.database, "에  연결");
 
 // Disable the fingerprinting of this web technology.
 app.disable("x-powered-by");

@@ -17,11 +17,11 @@ body {
 
 header {
   background-image: url("/images/header.jpg");
-  background-size: 10% 20%;
+  background-size: 100% 200%;
   background-position: bottom;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 1.5em;
+  padding: 3em;
   text-align: center;
   color: wheat;
   text-shadow: 1px 1px 1px black;
