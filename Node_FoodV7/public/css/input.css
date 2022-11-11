@@ -63,3 +63,15 @@ button.today:hover {
 input[name="t_seq"] {
   display: none;
 }
+
+span.today.delete {
+  font-size: 20px;
+  font-weight: 900;
+  color: #aaa;
+  opacity: 0;
+  transition: 0.5s;
+}
+/* table 의 tr 에 hover 가 되면 span 의 style을 변경하라 */
+table.today tr:hover span.today.delete {
+  opacity: 1;
+}

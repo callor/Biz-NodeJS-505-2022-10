@@ -18,9 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnReset = document.querySelector("button.today.reset");
   tTable?.addEventListener("click", (tag) => {
     const target = tag.target;
+    const pTR = target.closest("TR");
+    const t_seq = pTR?.dataset?.seq;
+    if (target.tagName === "SPAN") {
+      if (confirm(`${t_seq} 데이터를 삭제??`)) {
+        document.location.replace(`/delete/${t_seq}`);
+      }
+    }
+
     if (target.tagName === "TD") {
-      const pTR = target.closest("TR");
-      const t_seq = pTR.dataset.seq;
       const tds = pTR.childNodes;
 
       for ([index, td] of tds.entries()) {

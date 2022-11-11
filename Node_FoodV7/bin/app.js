@@ -38,7 +38,7 @@ const app = express();
 // true : 프로젝트가 시작될때마다 기존 table 을 DROP 하고
 //    다시 create 한다
 // false : 기본값, 기존 table 과 데이터는 그대로 유지한다
-DB.sequelize.sync({ force: true }).then((dbConn) => {
+DB.sequelize.sync({ force: false }).then((dbConn) => {
   console.log(dbConn.options.host, dbConn.config.database, "DB Connection OK");
 });
 

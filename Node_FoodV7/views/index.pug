@@ -17,7 +17,7 @@ block content
         th 음식명
         th 섭취량
         th 단위칼로리
-        th 총칼로리
+        th(colspan="2") 총칼로리
       tbody 
         //- each 요소 in 배열
         each today in todays
@@ -28,13 +28,19 @@ block content
             td(title="t_qty")= today.t_qty
             td(title="t_cal")= today.t_cal
             td= today.t_qty * today.t_cal
+            td 
+              span.today.delete &times;
         form(method="POST").today
           input(name="t_seq",value="0")
           tr 
             td
-              input(name="t_date" placeholder="섭취일자를 입력하세요" title="섭취일자")
+              input(name="t_date" 
+              value=`${dateTime.t_date}`
+              placeholder="섭취일자를 입력하세요" title="섭취일자")
             td
-              input(name="t_time" placeholder="섭취시각을 입력하세요" title="섭취시각")
+              input(name="t_time" 
+              value=`${dateTime.t_time}`
+              placeholder="섭취시각을 입력하세요" title="섭취시각")
             td
               input(name="t_content" placeholder="음식명" title="음식명")
             td
