@@ -2,30 +2,34 @@ extends ../layout
 
 block content 
     link(rel="stylesheet" href="/css/buyer/write.css")
+    script(src="/js/buyer/write.js")
     form(method="POST").buyer.write 
         fieldset 
             legend 거래처정보 등록
             div
                 label 거래처코드
-                input(placeholder="거래처코드를 입력하세요",title="거래처코드")
+                input(name="b_code", placeholder="거래처코드를 입력하세요",title="거래처코드")
+                div.buyer.code
+                    button(type="button").buyer.code_create 코드생성
+                    button(type="button").buyer.code_check 중복검사
             div
                 label 거래처명
-                input(placeholder="거래처명을 입력하세요",title="거래처명")
+                input(name="b_title", placeholder="거래처명을 입력하세요",title="거래처명")
             div
                 label 대표전화
-                input(placeholder="대표전화를 입력하세요",title="대표전화")
+                input(name="b_tel", placeholder="대표전화를 입력하세요",title="대표전화")
             div
                 label 대표자명
-                input(placeholder="대표자명을 입력하세요",title="대표자명")
+                input(name="b_ceo",placeholder="대표자명을 입력하세요",title="대표자명")
             div
                 label 담당자명
-                input(placeholder="담당자명을 입력하세요",title="담당자명")
+                input(name="b_manager",placeholder="담당자명을 입력하세요",title="담당자명")
             div
                 label 담당자연락처
-                input(placeholder="담당자 연락처를 입력하세요",title="담당자연락처")
+                input(name="b_man_tel", placeholder="담당자 연락처를 입력하세요",title="담당자연락처")
             div
                 label 주소
-                input(placeholder="주소를 입력하세요")
+                input(name="b_post_addr", placeholder="주소를 입력하세요")
             div.button.box
                 button(type="button").buyer.input 저장
                 button(type="button").buyer.list 리스트로

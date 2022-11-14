@@ -10,7 +10,7 @@ table.buyer.list {
 }
 
 table.buyer th,
-table.buyer.td {
+table.buyer td {
   white-space: nowrap;
   text-align: left;
   padding: 10px 16px;

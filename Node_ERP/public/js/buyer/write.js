@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   btnInput?.addEventListener("click", () => {
     const buyerInputs = document.querySelectorAll("input");
     for (input of buyerInputs) {
-      const tagTitle = input.title;
+      const tagTitle = input?.title;
       /**
        * input 항목이 많을 경우
        * 유효성 검사가 필요한 항목과
@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
           input.select();
           return false;
         }
-      }
+      } // end if
+      document.querySelector("form.buyer.write").submit();
     }
   });
 });

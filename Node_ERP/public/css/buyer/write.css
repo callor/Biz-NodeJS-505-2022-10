@@ -43,6 +43,32 @@ form.buyer.write input {
   border-radius: 5px;
   border: 1px solid #ddd;
 }
+form.buyer.write input[name="b_code"] {
+  flex: 2;
+}
+
+form.buyer.write div.code {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.buyer.code button {
+  flex: 1;
+  margin: 0 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+div.buyer.code button:nth-of-type(1) {
+  background-color: green;
+  color: white;
+}
+div.buyer.code button:nth-of-type(2) {
+  background-color: rgb(199, 72, 72);
+  color: white;
+}
 
 div.button.box {
   justify-content: right;
