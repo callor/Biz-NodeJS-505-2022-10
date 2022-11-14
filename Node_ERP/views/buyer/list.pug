@@ -1,0 +1,26 @@
+extends ../layout 
+
+block content 
+    link(rel="stylesheet" href="/css/buyer/list.css")
+    table.buyer.list
+        thead
+            tr
+                th SEQ
+                th CODE
+                th 이름
+                th 전화번호
+                th 담당자명
+                th 연락처
+                th 매출액합계(만원)
+        tbody 
+            each buyer,index in buyers
+                tr
+                    td= index + 1
+                    td= buyer.b_code 
+                    td= buyer.b_title 
+                    td= buyer.b_tel 
+                    td= buyer.b_manager 
+                    td= buyer.b_man_tel 
+                    td 9,000,000
+    div.button.box
+        button.insert 거래처추가
