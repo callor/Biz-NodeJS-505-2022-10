@@ -113,4 +113,19 @@ router.get("/get/bcode", async (req, res) => {
   } catch (err) {}
 });
 
+router.get("/check/:bcode", async (req, res) => {
+  const bcode = req.params.bcode;
+
+  try {
+    const buyer = await Buyer.findByPk(bcode);
+    if (buyer) {
+      return res.json({ status: "YES", message: "등록된 거래처 코드" });
+    } else {
+      return res.json({ status: null, message: "사용할 수 있는 코드" });
+    }
+  } catch (err) {
+    res.send("SQL 오류");
+  }
+});
+
 export default router;
