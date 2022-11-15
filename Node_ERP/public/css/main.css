@@ -64,10 +64,6 @@ footer {
   text-align: center;
 }
 
-button:hover {
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
-}
-
 /* mouse hove */
 input:hover {
   background-color: #eee;
@@ -75,4 +71,14 @@ input:hover {
 /* mouse click, focus */
 input:focus {
   background-color: #ddd;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
 }

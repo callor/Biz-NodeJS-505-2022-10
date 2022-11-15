@@ -26,5 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
       } // end if
       document.querySelector("form.buyer.write").submit();
     }
-  });
+  }); // btnInsert.event end
+  if (public_bcode) {
+    document.querySelector("form.buyer.write legend").textContent =
+      "거래처 정보 수정";
+    document
+      .querySelector("input[name='b_code']")
+      .setAttribute("readonly", "readonly");
+    document.querySelector("button.buyer.input").style.backgroundColor =
+      "#00AAAA";
+
+    document.querySelector("button.buyer.code_check").disabled = "disabled";
+    document.querySelector("button.buyer.code_create").disabled = "disabled";
+  }
 });

@@ -2,20 +2,21 @@ extends ../layout
 
 block content 
     link(rel="stylesheet" href="/css/buyer/detail.css")
+    script(src="/js/buyer/detail.js")
     article.detail.container
         article.detail.info
             article.detail.col
                 div CODE 
-                div B0001
+                div= buyer.b_code
                 div 이름 
-                div 대한상사
+                div= buyer.b_title
                 div 전화번호 
-                div 062-555-111
+                div= buyer.b_tel
                 div 담당자명 
-                div 김담당
+                div= buyer.b_manager
             article.detail.addr
                 div 주소
-                div 광주광역시
-        article.detail.button
+                div= buyer.b_post_addr
+        article(data-b_code=`${buyer.b_code}`).detail.button
             button.buyer.update 수정
             button.buyer.delete 삭제

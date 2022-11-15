@@ -1,6 +1,5 @@
 article.detail {
   display: grid;
-  border: 1px solid #aaa;
 }
 article.detail.container {
   grid-template-columns: 2fr 1fr;
@@ -43,6 +42,7 @@ article.detail div:nth-of-type(2n) {
 article.detail div:nth-of-type(2n - 1) {
   background-color: #aaa;
   text-align: right;
+  font-weight: 900;
 }
 
 article.detail.button {
@@ -54,4 +54,10 @@ button.buyer {
   margin: 10px;
   padding: 12px 30px;
   color: white;
+}
+button.buyer.update {
+  background-color: blue;
+}
+button.buyer.delete {
+  background-color: red;
 }
