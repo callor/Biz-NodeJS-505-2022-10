@@ -1,4 +1,57 @@
-article.detail.container {
+article.detail {
   display: grid;
-  grid-template-columns: 1fr 2fr 3fr;
+  border: 1px solid #aaa;
+}
+article.detail.container {
+  grid-template-columns: 2fr 1fr;
+  border: 1px solid #aaa;
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px 16px;
+}
+
+article.detail.col {
+  grid-template-columns: 1fr 3fr 1fr 3fr;
+}
+
+article.detail.addr {
+  grid-template-columns: 1fr 7fr;
+}
+
+article.detail div {
+  padding: 8px;
+  margin: 3px;
+}
+
+/*
+nth-of-type() 에서 n 변수
+미리 정해진 변수이다
+일종의 index 변수
+nth-of-type() 함수에 n 변수가 추가되면
+forEach 가 작동된다
+    (n) : 모든 요소에 대해서
+    (2n) : index * 2 의 요소에만
+    (3n) : index * 3 의 요소에만
+
+*/
+/* 2,4,6,8 ... 등의 index 를 갖는 요소들 */
+article.detail div:nth-of-type(2n) {
+  background-color: #eee;
+}
+
+/* 2-1, 4-1, 6-1, 8-1 등의 index 를 갖는 요소들 */
+article.detail div:nth-of-type(2n - 1) {
+  background-color: #aaa;
+  text-align: right;
+}
+
+article.detail.button {
+  display: flex;
+  align-items: center;
+}
+
+button.buyer {
+  margin: 10px;
+  padding: 12px 30px;
+  color: white;
 }
