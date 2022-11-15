@@ -72,4 +72,45 @@ router.get("/delete/:bcode", async (req, res) => {
   }
 });
 
+/**
+ * web 에서 거래처 코드 자동생성을 요청할때
+ * DB 에서 b_code 가장 큰값 + 1 을 연산하여
+ * web Response 하는 router
+ *
+ * 가장 큰 거래처 코드가 B0001 < B0002 < B0111 이렇게 등록되어 있을때
+ * B0112 코드를 자동생성하여 response 하기
+ */
+router.get("/get/bcode", async (req, res) => {
+  /**
+   * sequelize 에서는 기본적인 CRUD 를 함수로 제공한다
+   * 하지만 기본적으로 제공하는 기능이 아닌 특별한 SQL 을 사용하는 방법
+   * 이때 기본이외의 별도 SQL 을 작성하는 것을 Raw SQL Query 라고 한다
+   */
+  const rawSQL = "SELECT * FROM tbl_buyer ORDER BY b_code DESC LIMIT 1";
+  try {
+    const [buyer, field] = await DB.sequelize.query(rawSQL, { model: Buyer });
+    let bcode = "B0000"; // 거래처코드 Domain(코드 규칙) 이라고 하자
+
+    /**
+     * 거래처 table 에서 조회한 데이터가 있으면
+     * 조회한 데이터의 거래처코드를 bcode 에 담고
+     * 그렇지 않으면 B0000 을 담아라
+     */
+    bcode = buyer?.b_code || bcode;
+
+    // bcode 값을 0번째 부터 1번째 앞까지 잘르기 : B 문자열 한개를 추출하기
+    const prefix = bcode.substring(0, 1);
+    // bcode 값을 1번째 부터 나머지 모두 : 0000 부문 문자열 추출하기
+    const suffix = bcode.substring(1);
+    // suffix 문자열형 숫자를 실제 숫자로 변경하고 1 증가
+    const codeSeq = Number(suffix) + 1;
+
+    // 만약 codeSeq 값이 3 이라면 00003 형식의 문자열을 만들어라
+    bcode = `00000${codeSeq}`; // 00003
+    bcode = bcode.substring(bcode.length - 4); // 0003
+    bcode = prefix + bcode; // B0003
+    res.send(bcode);
+  } catch (err) {}
+});
+
 export default router;

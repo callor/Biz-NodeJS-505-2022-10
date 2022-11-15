@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnInput = document.querySelector("button.buyer.input");
   const btnList = document.querySelector("button.buyer.list");
 
+  const formLegend = document.querySelector("form.buyer.write legend");
+  const bcodeInput = document.querySelector("input[name='b_code']");
+
+  const btnCodeCheck = document.querySelector("button.buyer.code_check");
+  const btnCodeCreate = document.querySelector("button.buyer.code_create");
+
   btnInput?.addEventListener("click", () => {
     const buyerInputs = document.querySelectorAll("input");
     for (input of buyerInputs) {
@@ -27,16 +33,22 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector("form.buyer.write").submit();
     }
   }); // btnInsert.event end
-  if (public_bcode) {
-    document.querySelector("form.buyer.write legend").textContent =
-      "거래처 정보 수정";
-    document
-      .querySelector("input[name='b_code']")
-      .setAttribute("readonly", "readonly");
-    document.querySelector("button.buyer.input").style.backgroundColor =
-      "#00AAAA";
 
-    document.querySelector("button.buyer.code_check").disabled = "disabled";
-    document.querySelector("button.buyer.code_create").disabled = "disabled";
+  btnCodeCreate?.addEventListener("click", () => {
+    alert("거래처 코드 생성하기");
+  });
+
+  btnCodeCheck?.addEventListener("click", () => {
+    alert("코드 중복 체크하기");
+  });
+
+  if (public_bcode) {
+    formLegend.textContent = "거래처 정보 수정";
+    // bcodeInput.setAttribute("readonly", "readonly");
+    // bcodeInput.readOnly = "readOnly"
+    bcodeInput.readOnly = true;
+    btnInput.style.backgroundColor = "#00AAAA";
+    btnCodeCreate.disabled = "disabled"; // true
+    btnCodeCheck.disabled = "disabled";
   }
 });
