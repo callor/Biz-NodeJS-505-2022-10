@@ -38,5 +38,26 @@ SELECT * FROM tbl_buyer;
 -- b_code 가 가장 큰 데이터 찾기
 SELECT * FROM tbl_buyer ORDER BY b_code DESC LIMIT 1;
 
+USE erpDBv2;
+
+CREATE TABLE IF NOT EXISTS tbl_users (
+	username	VARCHAR(20)		PRIMARY KEY,
+	password	VARCHAR(125)	NOT NULL,	
+	real_name	VARCHAR(50),		
+	usertel	VARCHAR(15),		
+	nick_name	VARCHAR(50)	NOT NULL,	
+	user_role	INT	DEFAULT 9	
+);
+DESC tbl_users;
+
+INSERT tbl_users (
+	username, password, 
+    real_name, nick_name,user_role)
+VALUES (
+	'callor','12345','홍길동','길동아',1
+);    
+
+
+
 
 

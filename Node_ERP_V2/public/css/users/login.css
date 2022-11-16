@@ -1,0 +1,105 @@
+article.user.login.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+  width: 400px;
+  padding: 40px;
+  background-color: #191919;
+  border-radius: 20px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+
+  margin: 0 auto;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* @keyframs 로 설정된 애니메이션 적용하기 */
+  animation-name: login_box_pull_down;
+  animation-duration: 0.8s;
+}
+
+h1.user.login.title {
+  font-size: 2em;
+}
+
+h2.user.login.error,
+form.login input,
+form.login button {
+  display: block;
+  margin: 20px auto;
+  width: 250px;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+}
+
+h2.user.error {
+  background-color: red;
+  color: yellow;
+  text-align: center;
+}
+
+form.login input {
+  background-color: rgb(87, 87, 202);
+  border: 3px solid greenyellow;
+  color: white;
+}
+
+form.login input:hover {
+  opacity: 0.5;
+}
+
+form.login input:focus {
+  opacity: 1;
+  width: 350px;
+}
+
+form.login button {
+  /* font color 는 그대로 두고 배경색에만 opacity 주기 */
+  background-color: rgba(18, 104, 18, 0.6);
+  color: yellow;
+  font-weight: 900;
+}
+
+form.login button:hover {
+  cursor: pointer;
+  background-color: rgba(18, 104, 18, 1);
+}
+
+div.login.url {
+  text-align: center;
+  color: #777;
+}
+
+div.login.url a {
+  text-decoration: none;
+  color: inherit;
+}
+
+div.login.url a:hover {
+  color: #aaa;
+  text-decoration: underline;
+}
+
+/**
+css 를 통하여 animation 을 구현하기 위한 도구
+*/
+@keyframes login_box_pull_down {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}

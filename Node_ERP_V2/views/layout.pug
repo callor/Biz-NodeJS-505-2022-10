@@ -15,7 +15,13 @@ html
       li 결제관리
       li 거래처관리
       li 상품관리
-      li 로그인
+      if user
+        //- li= user.nick_name
+        //- li `${user.nick_name} 님`
+        li #{user.nick_name} 님 Page
+        li 로그아웃
+      else
+        li 로그인
   section.main
     block content
 
