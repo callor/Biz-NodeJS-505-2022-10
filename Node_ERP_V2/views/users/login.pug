@@ -6,7 +6,10 @@ block content
     article.user.login.container
         h1.user.login.title 로 그 인
         if error
-            - const msg = error === "USERNAME" ? "사용자 없음" : "비번오류"
+            - let msg = error === "LOGIN" ? "로그인이 필요한 서비스 입니다" : null
+            - msg = error === "ROLE" ? "사용할수 있는 권한이 없습니다" : msg
+            - msg = error === "USERNAME" ? "USERNAME 이 없습니다" : msg
+            - msg = error === "PASSWORD" ? "비밀번호가 잘못되었습니다" : msg
             h2.user.login.error= msg
         form.user.login(method="POST")
             input(name="username",placeholder="USERNAME",title="사용자 ID")

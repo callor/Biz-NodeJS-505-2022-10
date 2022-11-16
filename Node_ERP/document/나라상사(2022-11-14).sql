@@ -56,7 +56,16 @@ INSERT tbl_users (
 VALUES (
 	'callor','12345','홍길동','길동아',1
 );    
+INSERT tbl_users (
+	username, password, 
+    real_name, nick_name,user_role)
+VALUES (
+	'callor88','12345','성춘향','춘향아',5
+);    
 
+
+
+SELECT * FROM tbl_users;
 
 
 
