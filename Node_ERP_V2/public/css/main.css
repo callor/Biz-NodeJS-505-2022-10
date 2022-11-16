@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  width: 100%;
+  height: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 2em;
+  color: white;
+  text-shadow: 1px 1px 1px #777;
+
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 30%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+nav.main {
+  background-color: rgb(94, 94, 94);
+  color: white;
+  font-weight: bold;
+}
+
+nav.main ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav.main li {
+  margin: 0.5em 16px 0.7em 16px;
+  padding: 12px 16px 5px 16px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: 0.5s;
+}
+
+nav.main li:nth-of-type(6) {
+  margin-left: auto;
+}
+
+nav.main li:hover {
+  border-bottom: 3px solid yellowgreen;
+}
+
+section.main {
+  flex: 1;
+  width: 100%;
+}
+
+footer {
+  background-color: rgb(94, 94, 94);
+  color: white;
+  padding: 0.8em;
+  text-align: center;
+}
+
+/* mouse hove */
+input:hover {
+  background-color: #eee;
+}
+/* mouse click, focus */
+input:focus {
+  background-color: #ddd;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.7);
+}

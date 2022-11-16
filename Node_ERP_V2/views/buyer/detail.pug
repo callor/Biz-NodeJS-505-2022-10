@@ -1,0 +1,22 @@
+extends ../layout 
+
+block content 
+    link(rel="stylesheet" href="/css/buyer/detail.css")
+    script(src="/js/buyer/detail.js")
+    article.detail.container
+        article.detail.info
+            article.detail.col
+                div CODE 
+                div= buyer.b_code
+                div 이름 
+                div= buyer.b_title
+                div 전화번호 
+                div= buyer.b_tel
+                div 담당자명 
+                div= buyer.b_manager
+            article.detail.addr
+                div 주소
+                div= buyer.b_post_addr
+        article(data-b_code=`${buyer.b_code}`).detail.button
+            button.buyer.update 수정
+            button.buyer.delete 삭제

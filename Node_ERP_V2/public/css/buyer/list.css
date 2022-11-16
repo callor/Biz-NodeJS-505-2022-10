@@ -1,0 +1,36 @@
+table.buyer.list,
+div.button.box {
+  width: 80%;
+  margin: 10px auto;
+}
+
+table.buyer.list {
+  border-collapse: collapse;
+  background-color: #eee;
+}
+
+table.buyer th,
+table.buyer td {
+  white-space: nowrap;
+  text-align: left;
+  padding: 10px 16px;
+}
+
+table.buyer th {
+  background-color: #aaa;
+}
+
+table.buyer td {
+  cursor: pointer;
+}
+
+div.button.box {
+  padding: 12px 0;
+  text-align: right;
+}
+
+button.insert {
+  background-color: rgb(52, 152, 219);
+  color: white;
+  padding: 12px 16px;
+}
