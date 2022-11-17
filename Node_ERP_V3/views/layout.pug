@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/main_form.css')
+    script(src="/js/main.js")
+  body
+  header 
+    h1 나라상사 ERP 2022
+    p 나라상사 ERP 매입매출관리 v1 
+  nav.main 
+    ul
+      li Home
+      li 주문관리
+      li 결제관리
+      li 거래처관리
+      li 상품관리
+      if user
+        //- li= user.nick_name
+        //- li `${user.nick_name} 님`
+        li #{user.nick_name} 님 Page
+        li 로그아웃
+      else
+        li 로그인
+  section.main
+    block content
+
+  footer
+    address CopyRight &copy; callor@callor.com

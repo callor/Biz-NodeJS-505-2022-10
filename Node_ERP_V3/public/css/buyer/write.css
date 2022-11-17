@@ -1,0 +1,104 @@
+form.buyer.write {
+  width: 80%;
+  margin: 10px auto;
+}
+
+form.buyer.write fieldset {
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+form.buyer.write div {
+  width: 90%;
+}
+
+form.buyer.write legend {
+  margin: 50px;
+  padding: 10px;
+  color: blue;
+  font-weight: 900;
+}
+
+form.buyer.write div {
+  width: 90%;
+  margin: 5px auto;
+  display: flex;
+}
+
+form.buyer.write label,
+form.buyer.write input {
+  padding: 8px;
+  margin: 3px;
+}
+
+form.buyer.write label {
+  flex: 1;
+  text-align: right;
+  color: rgb(52, 152, 219);
+  font-weight: bold;
+}
+
+form.buyer.write input {
+  flex: 3;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+form.buyer.write input[name="b_code"] {
+  flex: 2;
+}
+
+form.buyer.write div.code {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.buyer.code button {
+  flex: 1;
+  margin: 0 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+div.buyer.code button:nth-of-type(1) {
+  background-color: green;
+  color: white;
+}
+div.buyer.code button:nth-of-type(2) {
+  background-color: rgb(199, 72, 72);
+  color: white;
+}
+
+div.button.box {
+  justify-content: right;
+}
+
+div.button.box button {
+  margin: 12px 3px 12px 10px;
+  padding: 12px 16px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+button.buyer.input {
+  background-color: rgb(95, 95, 218);
+  color: white;
+}
+
+button.buyer.list {
+  background-color: orange;
+}
+
+button.buyer.reset {
+  background-color: greenyellow;
+}
+
+/* button 속성중에 disabled='disable' 가 설정되었을때 */
+button[disabled] {
+  border: 1px solid #999 !important;
+  background-color: #ccc !important;
+  color: #777 !important;
+  cursor: not-allowed;
+}

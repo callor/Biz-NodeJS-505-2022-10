@@ -1,0 +1,9 @@
+table.buyer.list,
+div.button.box {
+  width: 80%;
+}
+
+table.buyer.list {
+  border-collapse: collapse;
+  background-color: #eee;
+}

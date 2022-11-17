@@ -1,0 +1,34 @@
+extends ../layout
+
+block content 
+    form.products.write
+        fieldset 
+            legend 상품정보 등록
+            div
+                label(for="p_code") 상품코드
+                input(name="p_code")#p_code
+            div
+                label(for="p_title") 상품명
+                input(name="p_title",id="p_title")
+            div
+                label(for="p_main_cat") 대분류
+                input(name="p_main_cat")#p_main_cat
+            div
+                label(for="p_industry") 주매입처
+                input(name="p_industry")#p_industry
+            div
+                label(for="p_iprice") 매입단가
+                input(type="number",name="p_iprice")#p_iprice
+            div
+                label(for="p_oprice") 매출단가
+                input(type="number",name="o_oprice")#p_oprice
+            div
+                label(for="p_cprice") 판매단가
+                input(type="number",name="p_cprice")#p_cprice
+            div
+                label(for="p_image_file") 상품이미지
+                input(type="file",name="p_image_file")#p_image_file
+            div.products.button.box
+                button(type="button").products.input 저장
+                button(type="button").products.list 리스트로
+

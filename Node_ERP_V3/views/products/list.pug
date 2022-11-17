@@ -1,0 +1,18 @@
+extends ../layout 
+
+block content
+    link(rel="stylesheet",href="/css/products/list.css")
+    script(src="/js/products/list.js")
+    table.products.list
+        thead 
+            tr
+                th 상품코드
+                th 상품명
+                th 분류
+                th 주 매입처
+                th 매입단가
+                th 매출단가
+                th 판매단가
+    .products.button.box
+        button.products.button.insert 추가
+
