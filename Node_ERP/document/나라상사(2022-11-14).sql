@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS tbl_products (
 		p_oprice	INT,		
 		p_cprice	INT		
 );
-
+DESC tbl_products;
 
 
 

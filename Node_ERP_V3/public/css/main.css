@@ -81,6 +81,7 @@ button {
   border: none;
   outline: none;
   border-radius: 5px;
+  white-space: nowrap;
 }
 
 .button.box {

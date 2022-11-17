@@ -1,0 +1,42 @@
+input[name="p_code"] {
+  flex: 2.5 !important;
+}
+div.products.code {
+  flex: 0.5;
+}
+
+button.products.code_check {
+  padding: 6px 20px;
+  margin-left: 10px;
+  background-color: rgb(59, 231, 59);
+}
+
+div.products.price {
+  flex: 3;
+}
+div.products.price input,
+div.products.price label {
+  width: calc(100% / 8);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label.checkbox {
+  text-align: center !important;
+  margin: 0 1em;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  line-height: 20px;
+  background-color: #ebf5fc;
+  box-shadow: -5px -5px 5px #fff, 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+input[type="checkbox"]:checked + label.checkbox {
+  background-color: #ebf5fc;
+  /* inset box 안쪽으로 그림자 적용 */
+  box-shadow: inset -2px -2px 5px #fff, inset 3px 3px 5px rgba(0, 0, 0, 0.3);
+}

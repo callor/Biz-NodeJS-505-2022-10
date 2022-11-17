@@ -49,6 +49,14 @@ export default (sequelize) => {
         type: Sequelize.DataTypes.INTEGER,
         allowNull: true,
       },
+      p_origin_image: {
+        type: Sequelize.DataTypes.STRING(300),
+        allowNull: true,
+      },
+      p_upload_image: {
+        type: Sequelize.DataTypes.STRING(300),
+        allowNull: true,
+      },
     },
     {
       sequelize,

@@ -1,15 +1,19 @@
 extends ../layout
 
 block content 
-    form.products.write
+    script(src="/js/products/write.js")
+    link(rel="stylesheet",href="/css/products/write.css")
+    form(method="POST",enctype="multipart/form-data").products.write
         fieldset 
             legend 상품정보 등록
             div
                 label(for="p_code") 상품코드
-                input(name="p_code")#p_code
+                input(name="p_code",title="상품코드")#p_code
+                div.products.code
+                    button(type="button").products.code_check 중복검사
             div
                 label(for="p_title") 상품명
-                input(name="p_title",id="p_title")
+                input(name="p_title",id="p_title",title="상품명")
             div
                 label(for="p_main_cat") 대분류
                 input(name="p_main_cat")#p_main_cat
@@ -18,16 +22,21 @@ block content
                 input(name="p_industry")#p_industry
             div
                 label(for="p_iprice") 매입단가
-                input(type="number",name="p_iprice")#p_iprice
-            div
-                label(for="p_oprice") 매출단가
-                input(type="number",name="o_oprice")#p_oprice
-            div
-                label(for="p_cprice") 판매단가
-                input(type="number",name="p_cprice")#p_cprice
+                div.products.price
+                    input(type="number",name="p_iprice")#p_iprice
+
+                    label(for="p_cprice") 판매단가
+                    input(type="number",name="p_cprice",title="판매단가")#p_cprice
+
+                    input(type="checkbox",name="p_vat",value="1")#p_vat
+                    label(for="p_vat").checkbox 과세
+
+                    label(for="p_oprice") 매출단가
+                    input(type="number",name="o_oprice")#p_oprice
+
             div
                 label(for="p_image_file") 상품이미지
-                input(type="file",name="p_image_file")#p_image_file
+                input(type="file",name="p_image_file",accept="image/*")#p_image_file
             div.products.button.box
                 button(type="button").products.input 저장
                 button(type="button").products.list 리스트로

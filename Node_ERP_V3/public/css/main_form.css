@@ -36,6 +36,8 @@ form.write label {
   text-align: right;
   color: rgb(52, 152, 219);
   font-weight: bold;
+  white-space: nowrap;
+  user-select: none;
 }
 
 form.write input {
