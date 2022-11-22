@@ -17,13 +17,13 @@ router.get("/", async (req, res) => {
 - pug의 script 코드에서 데이터 받아 준비하기
 
 ```
-    script.
-         //- router 의 JSON 배열데이터를 JavaScript 에서 사용하기
-        const buyers = !{JSON.stringify(jsonBuyers)}
-        console.log("Buyer",buyers,buyers[0].b_title)
+script.
+    //- router 의 JSON 배열데이터를 JavaScript 에서 사용하기
+    const buyers = !{JSON.stringify(jsonBuyers)}
+    console.log("Buyer",buyers,buyers[0].b_title)
 
-        //- include list.js
+    //- include list.js
 
-    //- 다음의 list.js 에서 buyers JSON 배열데이터에 일반 JavaScript 변수와 같이 접근 가능하다
-    script(src="/js/buyer/list.js")
+//- 다음의 list.js 에서 buyers JSON 배열데이터에 일반 JavaScript 변수와 같이 접근 가능하다
+script(src="/js/buyer/list.js")
 ```
