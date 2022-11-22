@@ -7,7 +7,9 @@
 
 ```
 <script>
-  const student = JSON.parse(`<%- JSON.stringify(student) %>`);
+  const students = JSON.parse(`<%- JSON.stringify(student) %>`);
 </script>
+
+// st_update.js 파일에서 students 데이터를 사용할 수 있다
 <script src="/js/st_update.js"></script>
 ```
