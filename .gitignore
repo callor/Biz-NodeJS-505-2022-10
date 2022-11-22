@@ -3,3 +3,6 @@ node_modules/
 
 # nodejs 파일 업로드 제외하기
 package-lock.json
+
+# Security Config ignore
+mongoDB.*
