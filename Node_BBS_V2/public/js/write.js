@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btnInput = document.querySelector("button.bbs.input");
-  const btnList = Document.querySelector("button.bbs.list");
+  const btnList = document.querySelector("button.bbs.list");
   const formInput = document.querySelector("form.bbs.write");
 
   btnInput?.addEventListener("click", () => {

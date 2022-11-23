@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/insert", (req, res) => {
-  res.render("write");
+  res.render("write", { bbs: "" });
 });
 
 router.post("/insert", async (req, res) => {
@@ -42,9 +42,30 @@ router.get("/detail/:id", async (req, res) => {
 router.get("/update/:id", async (req, res) => {
   const id = req.params.id;
   try {
+    const result = await BBS.findById(id);
+    return res.render("write", { bbs: result });
+  } catch (err) {}
+});
+
+router.post("/update/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
     await BBS.updateOne({ _id: id }, { $set: req.body });
     return res.redirect(`/detail/${id}`);
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+    return res.json(err);
+  }
+});
+
+router.get("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await BBS.findByIdAndDelete(id);
+    return res.redirect("/");
+  } catch (err) {
+    res.json(err);
+  }
 });
 
 /* GET home page. */

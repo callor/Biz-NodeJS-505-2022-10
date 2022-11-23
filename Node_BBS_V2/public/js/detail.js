@@ -24,5 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         break;
     } // end switch
     document.location.href = URL;
-  };
+  }; // end clickEvent
+  bbsUpdate.addEventListener("click", clickEvent);
+  bbsDelete.addEventListener("click", clickEvent);
+  bbsList.addEventListener("click", clickEvent);
 });
