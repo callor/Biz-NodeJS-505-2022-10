@@ -2,11 +2,12 @@
 
 - NodeJS Express 와 MongoDB 를 연동하여 게시판 CRUD 구현하기
 - NodeJS 에서 MongoDB와 연동을 할때는 대부분의 프로젝트에서 mongoose를 사용하여 ORM 방식으로 접근한다
-- mongoDB dependency 를 사용하여 Legacy 방식으로 연결하는 프로젝트
+- mongoose 를 사용한 ORM 방식으로 mongoDB 프로젝트 구현
 
 ## Dependency
 
 `npm install -save mongodb`
+`npm install -save mongoose`
 
 ## 보안 주의사항!!
 

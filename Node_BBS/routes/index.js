@@ -3,6 +3,9 @@ import { MongoClient } from "mongodb";
 import { atliasURL } from "../config/mongoDB.js";
 
 // atlas 접속하기
+// new 키워드를 사용하여 MongoClient 클래스를 통하여
+// client 객체를 생성하기
+// mongoDB에 연결하기 위한 준비도구
 const client = new MongoClient(atliasURL);
 
 // BBS(bbs 라는 이름으로) Collection 시작

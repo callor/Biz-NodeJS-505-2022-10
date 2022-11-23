@@ -1,0 +1,22 @@
+extends layout 
+block content
+    script.
+        // pug 변수 bbs._id 데이터를
+        // JS 에서 사용할수 있도록 id 변수에 할당하기
+        const id = `#{bbs._id}`
+    script(src="/js/detail.js")
+    article.bbs.detail
+        div 작성일자
+        div= bbs.b_date 
+        div 작성시각
+        div= bbs.b_time 
+        div 작성자
+        div= bbs.b_writer
+        div 제목
+        div= bbs.b_subject 
+        div 내용
+        div= bbs.b_content
+    div.bbs.detail.button.box
+        button.bbs.update 수정
+        button.bbs.delete 삭제
+        button.bbs.list 리스트로

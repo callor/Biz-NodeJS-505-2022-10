@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  script(src="/js/list.js")
+  table.bbs.list
+    thead
+      tr
+        th 작성일
+        th 작성시각
+        th 작성자ID
+        th 제목
+        th ...
+    tbody
+      each bbs in bbsList
+        tr(data-id=`${bbs._id}`)
+          td= bbs.b_date 
+          td= bbs.b_time 
+          td= bbs.b_writer 
+          td= bbs.b_subject 
+          td 
+  div.bbs.button.box
+    button.bbs.insert 추가
