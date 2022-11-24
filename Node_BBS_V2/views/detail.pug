@@ -5,18 +5,26 @@ block content
         // JS 에서 사용할수 있도록 id 변수에 할당하기
         const id = `#{bbs._id}`
     script(src="/js/detail.js")
+    link(rel="stylesheet",href="/css/detail.css")
     article.bbs.detail
-        div 작성일자
-        div= bbs.b_date 
-        div 작성시각
-        div= bbs.b_time 
-        div 작성자
-        div= bbs.b_writer
-        div 제목
-        div= bbs.b_subject 
-        div 내용
-        div= bbs.b_content
+        div.label 작성일자
+        div.data= bbs.b_date 
+        div.label 작성시각
+        div.data= bbs.b_time 
+        div.label 작성자
+        div.data= bbs.b_writer
+        div.label 제목
+        div.data= bbs.b_subject 
+        div.label 내용
+        div.data= bbs.b_content
     div.bbs.detail.button.box
         button.bbs.update 수정
         button.bbs.delete 삭제
         button.bbs.list 리스트로
+    div.bbs.comments
+        div.comments.item
+            each comment in bbs.b_comments
+                p= `${comment.ct_writer}.. ${comment.ct_comment}`
+        div.comments.input
+            input()#b_comment
+            button.comment.add 댓글추가        

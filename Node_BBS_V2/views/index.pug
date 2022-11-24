@@ -18,5 +18,11 @@ block content
           td= bbs.b_writer 
           td= bbs.b_subject 
           td 
+        each cmm in bbs.b_comments 
+          tr
+            td
+            td  re&gt; 
+            td= cmm.ct_writer
+            td= cmm.ct_comment
   div.bbs.button.box
     button.bbs.insert 추가

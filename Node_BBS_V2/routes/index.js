@@ -1,5 +1,8 @@
 import express from "express";
 import BBS from "../models/tbl_bbs.js";
+import moment from "moment";
+const dateFormat = "YYYY-MM-DD";
+const timeFormat = "HH:mm:ss";
 
 const router = express.Router();
 
@@ -16,7 +19,13 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/insert", (req, res) => {
-  res.render("write", { bbs: "" });
+  const bbs = new BBS();
+  // moment 를 사용하여 현재 날짜 시각을
+  // 지정한 format 형식의 문자열로 만들어서
+  // 각각 b_date, b_time 칼럼에 추가하라
+  bbs.b_date = moment().format(dateFormat);
+  bbs.b_time = moment().format(timeFormat);
+  res.render("write", { bbs });
 });
 
 router.post("/insert", async (req, res) => {
@@ -65,6 +74,37 @@ router.get("/delete/:id", async (req, res) => {
     return res.redirect("/");
   } catch (err) {
     res.json(err);
+  }
+});
+
+/**
+ * router 의 RequestMethod
+ * POST, PUT, GET, DELETE
+ * POST : 처음 새로운 데이터를 서버로 보내서 INSERT 요청
+ * PUT : 기존의 데이터를 Update 요청
+ * GET : 데이터를 클라이언트에서 요구할때
+ * DELETE : 기존 데이터를 삭제할때
+ */
+router.put("/comment/add", async (req, res) => {
+  const { id, ct_comment } = req.body;
+  const commentData = {
+    ct_comment,
+    ct_writer: "익명",
+    ct_date: moment().format(dateFormat),
+    ct_time: moment().format(timeFormat),
+  };
+  console.log(id, ct_comment);
+
+  try {
+    // id 에 해당하는 데이터 찾기
+    const bbs = await BBS.findById(id);
+    // 기존의 댓글에 추가하기
+    bbs.b_comments.push(commentData);
+    await bbs.save();
+    return res.json(bbs);
+  } catch (err) {
+    console.log(err);
+    return res.send(err);
   }
 });
 
