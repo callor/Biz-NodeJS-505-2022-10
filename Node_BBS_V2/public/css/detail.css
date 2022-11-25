@@ -25,10 +25,47 @@ article.bbs.detail div {
   white-space: nowrap;
 }
 
-div.bbs.comments {
+article.bbs.comments {
   width: 80%;
-  margin: 5px auto;
-  display: flex;
-  flex-direction: column;
+  margin: 10px auto;
   border: 1px solid #aaa;
+}
+
+p.comment.list.box {
+  display: flex;
+}
+
+span.comment {
+  flex: 2;
+  padding: 5px;
+  line-height: 20px;
+}
+
+span.comment.writer {
+  flex: 1 !important;
+  text-align: center;
+}
+
+span.comment.content {
+  text-align: left;
+  font-weight: 700;
+}
+
+span.comment.delete {
+  flex: 1 !important;
+  color: #777;
+  text-align: center;
+  cursor: pointer;
+  /* 1em : 주위의 폰트 크기와 1:1, 2em 2배 만큼 크게 */
+  font-size: 2em;
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+
+/*
+commnet list 가 있는 p box 에 hover 가 되면
+span tag 에 속성 지정하기
+*/
+p.comment.list.box:hover span.comment.delete {
+  opacity: 1;
 }

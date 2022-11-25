@@ -21,10 +21,14 @@ block content
         button.bbs.update 수정
         button.bbs.delete 삭제
         button.bbs.list 리스트로
-    div.bbs.comments
-        div.comments.item
-            each comment in bbs.b_comments
-                p= `${comment.ct_writer}.. ${comment.ct_comment}`
-        div.comments.input
-            input()#b_comment
-            button.comment.add 댓글추가        
+    article.bbs.comments
+        input.comment
+        button.comment 댓글추가        
+        div.comments.box
+            each comm in bbs.b_comments
+                p.comment.list.box
+                    span.comment.writer= `${comm.ct_writer || 익명}`
+                    span.comment.content= comm.ct_comment
+                    //- 댓글의 id 를 dataset 로 설정
+                    span.comment.delete(data-id=`${comm._id}`) &times;
+

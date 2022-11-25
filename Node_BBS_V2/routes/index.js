@@ -108,6 +108,39 @@ router.put("/comment/add", async (req, res) => {
   }
 });
 
+// DELETE Request method 처리할 router
+/**
+ * 댓글 삭제하기
+ * 조건 : 한개의 개시글에 다수의 댓글(배열)이 저장된 상태
+ * 1. bbsId 값으로 게시글을 SELECT 하고
+ * 2. SELECT 된 게시글에 댓글이 있으면
+ * 3. 댓글 배열 List 중에서 commId 값을 갖는 데이터를 삭제하기
+ */
+router.delete("/comment/:bbsId/:commId", async (req, res) => {
+  const { bbsId, commId } = req.params;
+  console.log("BBS", bbsId, "COMMENT", commId);
+  try {
+    // bbsId 에 해당하는 게시글 SELECT
+    const bbs = await BBS.findById(bbsId);
+    // 게시글에서 comment 배열 추출하기
+    const commentList = bbs.b_comments;
+    /**
+     * commentList 데이터중에서 _id 값이 commId 와
+     * 다른 데이터만 추출하여 resultList 에 담아라
+     * 결과적으로 삭제하려고 하는 commId 에 해당하는 데이터는
+     * 삭제 된 채로 resultList 가 만들어질 것이다
+     */
+    const resultList = commentList.filter((comm) => {
+      return comm._id != commId;
+    });
+    bbs.b_comments = resultList;
+    // 삭제된 리스트가 있는 bbs 를 저장하고
+    await bbs.save();
+    // 그 결과를 다시 Response
+    return res.json(bbs);
+  } catch (err) {}
+});
+
 /* GET home page. */
 router.get("/input", async (req, res, next) => {
   const bbsContent = {

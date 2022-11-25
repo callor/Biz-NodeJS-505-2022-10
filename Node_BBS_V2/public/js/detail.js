@@ -8,6 +8,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const bbsCommentAdd = doc.querySelector("button.comment.add");
   const bbsCommentInput = doc.querySelector("input#b_comment");
 
+  const bbsCommentBox = doc.querySelector("div.comments.box");
+
+  const commentListView = (commList) => {
+    // list box clear
+    bbsCommentBox.textContent = "";
+    const commentList = commList.map((comm) => {
+      //  p.comment.list.box
+      const pBox = document.createElement("p");
+      pBox.className = "comment list box";
+
+      let span = document.createElement("SPAN");
+      span.className = "comment writer";
+      span.textContent = `${comm.ct_writer || "익명"}`;
+      pBox.appendChild(span);
+
+      span = document.createElement("SPAN");
+      span.className = "comment content";
+      span.textContent = `${comm.ct_comment}`;
+      pBox.appendChild(span);
+
+      span = document.createElement("SPAN");
+      span.className = "comment delete";
+      span.innerHTML = `&times;`;
+      pBox.appendChild(span);
+
+      return pBox;
+    }); // end map
+    bbsCommentBox.append(...commentListView);
+  };
+
+  bbsCommentBox?.addEventListener("click", (e) => {
+    const span = e.target;
+    if (span.tagName === "SPAN" && span.className.indexOf("delete") > 0) {
+      if (confirm("댓글을 삭제합니다~~~")) {
+        const commentId = span.dataset.id;
+        // alert(commentId);
+        // 서버에 DELETE RequestMethod 를 사용하여
+        // 데이터 삭제를 요청하기
+        fetch(`/comment/${id}/${commentId}`, { method: "DELETE" })
+          .then((res) => res.json())
+          .then((json) => {});
+      }
+    }
+  });
+
   bbsCommentAdd?.addEventListener("click", () => {
     const comment = bbsCommentInput?.value;
     if (!comment) {
@@ -42,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
+
         const commentList = json.b_comments;
         const cmmBox = document.querySelector("div.comments.item");
         // map 을 사용하여 댓글 개수만큼의 ptag 를 만들기
