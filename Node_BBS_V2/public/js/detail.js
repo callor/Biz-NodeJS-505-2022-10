@@ -5,9 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const bbsDelete = doc.querySelector(`${btn}.delete`);
   const bbsList = doc.querySelector(`${btn}.list`);
 
-  const bbsCommentAdd = doc.querySelector("button.comment.add");
-  const bbsCommentInput = doc.querySelector("input#b_comment");
+  // 댓글 추가 버튼
+  const bbsCommentAdd = doc.querySelector("button.comment");
+  // 댓글 input box
+  const bbsCommentInput = doc.querySelector("input.comment");
 
+  // 댓글 List 의 span tag 를 클릭했을때 발생하는
+  // event 를 처리하 위한 selector
   const bbsCommentBox = doc.querySelector("div.comments.box");
 
   const commentListView = (commList) => {
@@ -31,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
       span = document.createElement("SPAN");
       span.className = "comment delete";
       span.innerHTML = `&times;`;
+      span.dataset.id = comm._id;
       pBox.appendChild(span);
 
       return pBox;
@@ -62,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
       bbsCommentInput.select();
       return false;
     }
-
+    // id : detail.pug 에서 선언된 게시판 ID
+    // comment : 입력한 댓글
     const commentData = { id, ct_comment: comment };
     /**
      * fetch 기본 method 는 GET 방식이다
@@ -72,10 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
      *
      */
     const fetchOption = {
-      method: "PUT",
-      body: JSON.stringify(commentData),
+      method: "PUT", // RequestMethod
+      body: JSON.stringify(commentData), // 서버로 보낼 데이터
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", // 보낼 데이터 형식(JSON)
       },
     };
     fetch("/comment/add", fetchOption)
@@ -89,19 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((json) => {
         console.log(json);
-
-        const commentList = json.b_comments;
-        const cmmBox = document.querySelector("div.comments.item");
-        // map 을 사용하여 댓글 개수만큼의 ptag 를 만들기
-        // 생성된 ptag 는 pTagList 배열에 담긴다
-        const pTagList = commentList.map((cmm) => {
-          const pTag = document.createElement("P");
-          pTag.textContent = `${cmm.ct_writer}..${cmm.ct_comment}`;
-          return pTag;
-        });
-        cmmBox.textContent = "";
-        // pTagList 배열을 cmmBox 에 한꺼번에 append 하기
-        cmmBox.append(...pTagList);
+        // 위에서 선언한 commentListView 함수를 통하여
+        // 댓글 리스트 화면에 보여주기
+        commentListView(json.b_comments);
+        // bbsCommentInput.value = "";
+        bbsCommentInput.select();
       });
   });
 

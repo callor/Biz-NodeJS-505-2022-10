@@ -130,15 +130,21 @@ router.delete("/comment/:bbsId/:commId", async (req, res) => {
      * 결과적으로 삭제하려고 하는 commId 에 해당하는 데이터는
      * 삭제 된 채로 resultList 가 만들어질 것이다
      */
+    // 배열 리스트중에서 특정한(원하는) 값을 포함하는
+    // 배열을 제거하고 새로운 배열로 복사하기
     const resultList = commentList.filter((comm) => {
       return comm._id != commId;
     });
+    // 게시글의 원래 댓글 리스트와 교체
     bbs.b_comments = resultList;
     // 삭제된 리스트가 있는 bbs 를 저장하고
     await bbs.save();
     // 그 결과를 다시 Response
     return res.json(bbs);
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+    return res.json(err);
+  }
 });
 
 /* GET home page. */
