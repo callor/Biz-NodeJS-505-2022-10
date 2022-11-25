@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       return pBox;
     }); // end map
-    bbsCommentBox.append(...commentListView);
+    bbsCommentBox.append(...commentList);
   };
 
   bbsCommentBox?.addEventListener("click", (e) => {
@@ -48,7 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // 데이터 삭제를 요청하기
         fetch(`/comment/${id}/${commentId}`, { method: "DELETE" })
           .then((res) => res.json())
-          .then((json) => {});
+          .then((json) => {
+            commentListView(json.b_comments);
+          });
       }
     }
   });
