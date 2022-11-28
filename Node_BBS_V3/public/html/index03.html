@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        scroll-behavior: smooth;
+      }
+
+      div {
+        width: 80%;
+        height: 100%;
+        border: 1px solid blue;
+        margin: 10px;
+      }
+
+      div:nth-of-type(1) {
+        background-color: #777;
+        margin-top: 100px;
+      }
+
+      div:nth-of-type(2) {
+        background-color: #aaa;
+      }
+      div:nth-of-type(3) {
+        background-color: green;
+      }
+      nav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        background-color: blue;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav li {
+        padding: 12px 16px;
+        color: white;
+        cursor: pointer;
+      }
+
+      nav li:hover {
+        background-color: rgba(0, 255, 255, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="main">
+      <ul>
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+      </ul>
+    </nav>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script>
+      const navBox = document.querySelector("nav.main");
+      navBox?.addEventListener("click", (e) => {
+        const nav = e.target;
+        if (nav.tagName === "LI") {
+          if (nav.textContent === "첫번째") {
+            document.location.href = "#div1";
+          } else if (nav.textContent === "두번째") {
+            document.location.href = "#div2";
+          } else if (nav.textContent === "세번째") {
+            document.location.href = "#div3";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
