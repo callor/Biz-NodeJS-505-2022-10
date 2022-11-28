@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>반갑습니다</h1>
+    <p><a href="/api">API 바로가기</a></p>
+    <form method="GET" action="/api/student">
+      <input name="st_name" placeholder="GET 방식으로 요청하기" />
+    </form>
+    <form method="POST" action="/api/student">
+      <input name="st_name" placeholder="POST 방식으로 요청하기" />
+    </form>
+    <div class="update">
+      <input id="st_name" placeholder="변경할 학생 이름" />
+      <input id="st_grade" placeholder="학년" />
+      <input id="st_dept" placeholder="학과" />
+      <button id="st_update">업데이트</button>
+    </div>
+    <div class="delete">
+      <input class="st_name" placeholder="학생이름" />
+      <button id="st_delete">삭제</button>
+    </div>
+    <script>
+      document
+        .querySelector("button#st_delete")
+        ?.addEventListener("click", () => {
+          const stname = document.querySelector("input.st_name").value;
+          alert(stname);
+          fetch(`/api/student/${stname}`, {
+            method: "DELETE",
+            //   body: JSON.stringify({
+            //     st_name: stname,
+            //   }),
+          })
+            .then((res) => res.json())
+            .then((result) => alert(result.message));
+        });
+
+      document
+        .querySelector("button#st_update")
+        ?.addEventListener("click", () => {
+          const stInputs = document.querySelectorAll("div.update input");
+          const student = {
+            st_name: stInputs[0].value,
+            st_grade: stInputs[1].value,
+            st_dept: stInputs[2].value,
+          };
+          fetch("/api/student", {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(student),
+          })
+            // fetch() 함수의 첫번째 결과는
+            // Reponse 정보가 담겨서 수신되고
+            // then() 함수를 통하여 처리한다
+            // .then(response=>{return response.json() })
+            // Response 정보에서, JSON 데이터만 추출하여
+            //        다음 then() 함수에게 전달
+            .then((response) => response.json())
+            .then((result) => alert(result.message));
+        });
+    </script>
+  </body>
+</html>

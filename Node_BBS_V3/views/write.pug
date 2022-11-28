@@ -1,0 +1,27 @@
+extends layout 
+
+block content
+    script(src="/js/write.js")
+    form(method="POST").bbs.write
+        fieldset 
+            legend 글쓰기
+            div
+                label(for="b_date") 작성일자
+                input(name="b_date", value= bbs.b_date, title="작성일자")#b_date
+            div
+                label(for="b_time") 작성시각
+                input(name="b_time", value= bbs.b_time, title="작성시각")#b_time
+            div
+                label(for="b_writer") 작성자ID
+                input(name="b_writer", value= bbs.b_writer, title="작성자ID")#b_writer
+            div
+                label(for="b_subject") 제목
+                input(name="b_subject",, value= bbs.b_subject,title="제목")#b_subject
+            div
+                label(for="b_content") 내용
+                //- textArea에 데이터 보이기 : <textArea>데이터</textArea>
+                textarea(name="b_content", cols="30", rows="10")#b_content= bbs.b_content 
+            div.bbs.write.button.box
+                button(type="button").bbs.input 저장
+                button(type="button").bbs.list 리스트로
+

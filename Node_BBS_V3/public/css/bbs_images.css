@@ -1,0 +1,48 @@
+article.bbs.images {
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  margin: 10px auto;
+}
+
+article.bbs.images img {
+  width: 200px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+article.bbs.images div.image.box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+article.bbs.images div.images {
+  /*
+     나를 감싸고 있는 relative position 의 box 를 기준으로
+     top 과 left 를 같이 일치시켜 하나의 box 처럼 보이게 하라
+     하지만 현재 이 box(div.images)는 내부의 img 들 때문에
+     실제 box 보다 더 커져 있다
+   */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* 이 box 에 포함된 img tag 들을 가로 방향으로 배치하라 */
+  /* 
+  부모박스(relative posion box)의 overflow 를 hidden 으로하여
+  한개의 이미지만 보이고 나머지는 감춰지도록 한다
+  */
+  display: flex;
+  animation: imgSlide 20s linear infinite;
+}
+
+@keyframes imgSlide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 5));
+  }
+}

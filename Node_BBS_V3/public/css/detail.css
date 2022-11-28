@@ -1,0 +1,71 @@
+div.label {
+  background-color: #ddd;
+  text-align: right;
+  font-weight: 900;
+}
+
+/*
+nth-of-type() 변수 n 이 추가되면
+forEach() 처럼 작동된다
+n+5 : 0번부터 시작하여 5번위치, 6번위치의 div.label에
+속성 지정하기
+*/
+div.label:nth-of-type(n + 5) {
+  background-color: #eee;
+}
+article.bbs.detail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr 2fr);
+}
+
+article.bbs.detail div {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  margin: 3px;
+  white-space: nowrap;
+}
+
+article.bbs.comments {
+  width: 80%;
+  margin: 10px auto;
+  border: 1px solid #aaa;
+}
+
+p.comment.list.box {
+  display: flex;
+}
+
+span.comment {
+  flex: 2;
+  padding: 5px;
+  line-height: 20px;
+}
+
+span.comment.writer {
+  flex: 1 !important;
+  text-align: center;
+}
+
+span.comment.content {
+  text-align: left;
+  font-weight: 700;
+}
+
+span.comment.delete {
+  flex: 1 !important;
+  color: #777;
+  text-align: center;
+  cursor: pointer;
+  /* 1em : 주위의 폰트 크기와 1:1, 2em 2배 만큼 크게 */
+  font-size: 2em;
+  opacity: 0;
+  transition: opacity 0.7s;
+}
+
+/*
+commnet list 가 있는 p box 에 hover 가 되면
+span tag 에 속성 지정하기
+*/
+p.comment.list.box:hover span.comment.delete {
+  opacity: 1;
+}

@@ -1,0 +1,48 @@
+extends layout 
+block content
+    script.
+        // pug 변수 bbs._id 데이터를
+        // JS 에서 사용할수 있도록 id 변수에 할당하기
+        const id = `#{bbs._id}`
+    script(src="/js/detail.js")
+    link(rel="stylesheet",href="/css/detail.css")
+    link(rel="stylesheet",href="/css/bbs_images.css")
+    article.bbs.detail
+        div.label 작성일자
+        div.data= bbs.b_date 
+        div.label 작성시각
+        div.data= bbs.b_time 
+        div.label 작성자
+        div.data= bbs.b_writer
+        div.label 제목
+        div.data= bbs.b_subject 
+        div.label 내용
+        div.data= bbs.b_content
+    div.bbs.detail.button.box
+        button.bbs.update 수정
+        button.bbs.delete 삭제
+        button.bbs.list 리스트로
+    article.bbs.comments
+        input.comment
+        button.comment 댓글추가        
+        div.comments.box
+            each comm in bbs.b_comments
+                p.comment.list.box
+                    span.comment.writer= `${comm.ct_writer || 익명}`
+                    span.comment.content= comm.ct_comment
+                    //- 댓글의 id 를 dataset 로 설정
+                    span.comment.delete(data-id=`${comm._id}`) &times;
+    article.bbs.images
+        div.image.box
+            div.images 
+                img(src="/images/image_1.jpg", alt="")
+                img(src="/images/image_2.jpg", alt="")
+                img(src="/images/image_3.jpg", alt="")
+                img(src="/images/image_4.jpg", alt="")
+                img(src="/images/image_5.jpg", alt="")            
+
+                img(src="/images/image_1.jpg", alt="")
+                img(src="/images/image_2.jpg", alt="")
+                img(src="/images/image_3.jpg", alt="")
+                img(src="/images/image_4.jpg", alt="")
+                img(src="/images/image_5.jpg", alt="")            

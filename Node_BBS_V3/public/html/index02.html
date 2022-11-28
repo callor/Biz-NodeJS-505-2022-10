@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      section.main {
+        width: 80%;
+        border: 2px solid blue;
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 20px;
+      }
+      section.main div {
+        border: 1px solid #bbb;
+      }
+      section.main div:nth-of-type(odd) {
+        background-color: #ddd;
+      }
+      div.search {
+        width: 80%;
+        border: 1px solid #aaa;
+        margin: 20px auto;
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main"></section>
+    <div class="search">
+      <input id="st_num" placeholder="학번" />
+      <button id="student">데이터 조회</button>
+    </div>
+    <script>
+      const mainSection = document.querySelector("section.main");
+      const btn = document.querySelector("button#student");
+      const stNum = document.querySelector("input#st_num");
+      btn?.addEventListener("click", async () => {
+        if (!stNum.value) {
+          alert("학번을 입력해 주세요");
+          stNum.select();
+          return false;
+        }
+        const response = await fetch(`/api/student/${stNum.value}`);
+
+        /**
+         * 서버에서 HTML RESTFul 로 응답한 Response 에서
+         * text 만을 추출하여
+         * innerHTML 속성에 text 를 부착한다
+         */
+        const html = await response.text();
+        mainSection.innerHTML = html;
+      });
+    </script>
+  </body>
+</html>
