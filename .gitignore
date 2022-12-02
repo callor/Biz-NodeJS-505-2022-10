@@ -6,3 +6,5 @@ package-lock.json
 
 # Security Config ignore
 mongoDB.*
+upload/
+uploads/
