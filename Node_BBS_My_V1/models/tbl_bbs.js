@@ -13,14 +13,14 @@ export default (sequelize) => {
         type: Sequelize.DataTypes.STRING(10),
         allowNull: false,
         defaultValue: Sequelize.Sequelize.literal(
-          "date_format(now(),_utf8mb4\\'%Y-%m-%d\\')"
+          "(date_format(now(),_utf8mb4'%Y-%m-%d'))"
         ),
       },
       b_time: {
         type: Sequelize.DataTypes.STRING(10),
         allowNull: false,
         defaultValue: Sequelize.Sequelize.literal(
-          "date_format(now(),_utf8mb4\\'%H:%i:%S\\')"
+          "(date_format(now(),_utf8mb4'%H:%i:%S'))"
         ),
       },
       b_writer: {
