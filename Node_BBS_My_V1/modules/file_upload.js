@@ -23,6 +23,9 @@ const storageOption = {
       "latin1"
     ).toString("utf8");
     console.log("Conv");
+    file.originalname = Buffer.from(file.originalname, "latin1").toString(
+      "utf8"
+    );
     const uploadFileName = newFileName.substring(newFileName.length - 255);
 
     // 새로 변경된 파일 이름을 multer 에게 전달하기
