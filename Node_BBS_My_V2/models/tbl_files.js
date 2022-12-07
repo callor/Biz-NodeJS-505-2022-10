@@ -1,64 +1,66 @@
 import { Sequelize } from "sequelize";
-const tbl_bbs = (sequelize) => {
+export default (sequelize) => {
   return sequelize.define(
-    "tbl_bbs",
+    "tbl_files",
     {
-      b_seq: {
+      f_seq: {
         autoIncrement: true,
         type: Sequelize.DataTypes.BIGINT,
         allowNull: false,
         primaryKey: true,
       },
-      b_date: {
+      f_bseq: {
+        type: Sequelize.DataTypes.BIGINT,
+        allowNull: false,
+        references: {
+          model: "tbl_bbs",
+          key: "b_seq",
+        },
+      },
+      f_date: {
         type: Sequelize.DataTypes.STRING(10),
         allowNull: false,
         defaultValue: Sequelize.Sequelize.literal(
           "(date_format(now(),_utf8mb4'%Y-%m-%d'))"
         ),
       },
-      b_time: {
+      f_time: {
         type: Sequelize.DataTypes.STRING(10),
         allowNull: false,
         defaultValue: Sequelize.Sequelize.literal(
           "(date_format(now(),_utf8mb4'%H:%i:%S'))"
         ),
       },
-      b_writer: {
-        type: Sequelize.DataTypes.STRING(125),
+      f_original_name: {
+        type: Sequelize.DataTypes.STRING(255),
         allowNull: false,
       },
-      b_subject: {
-        type: Sequelize.DataTypes.STRING(125),
+      f_save_name: {
+        type: Sequelize.DataTypes.STRING(255),
         allowNull: false,
       },
-      b_content: {
-        type: Sequelize.DataTypes.TEXT,
+      f_ext: {
+        type: Sequelize.DataTypes.STRING(10),
         allowNull: false,
-      },
-      b_count: {
-        type: Sequelize.DataTypes.INTEGER,
-        allowNull: true,
-      },
-      b_update: {
-        type: Sequelize.DataTypes.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.Sequelize.literal("CURRENT_TIMESTAMP"),
       },
     },
     {
       sequelize,
-      tableName: "tbl_bbs",
+      tableName: "tbl_files",
       timestamps: false,
       indexes: [
         {
           name: "PRIMARY",
           unique: true,
           using: "BTREE",
-          fields: [{ name: "b_seq" }],
+          fields: [{ name: "f_seq" }],
+        },
+        {
+          name: "f_bbs",
+          using: "BTREE",
+          fields: [{ name: "f_bseq" }],
         },
       ],
     }
   );
 };
-
-export default tbl_bbs;

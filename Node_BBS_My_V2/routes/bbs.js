@@ -31,7 +31,7 @@ const router = express.Router();
  */
 router.get("/", async (req, res) => {
   try {
-    const result = await BBS.findAll();
+    const result = await BBS.findAll({ include: "m_files" });
     return res.render("bbs/list", { bbsList: result });
   } catch (err) {
     console.error(err);
@@ -115,16 +115,12 @@ router.post("/insert", fileUp.array("b_upfile"), async (req, res) => {
 router.get("/detail/:seq", async (req, res) => {
   const seq = req.params.seq;
   try {
-    const bbsResult = await BBS.findByPk(seq);
-    const fileResult = await BBS.findOne({
-      include: {
-        model: tbl_files,
-        where: {
-          f_bseq: bbsResult.b_seq,
-        },
-      },
+    const bbsResult = await BBS.findByPk(seq, { include: "m_files" });
+    return res.render("bbs/detail", {
+      bbs: bbsResult,
+      files: bbsResult.m_files,
+      length: bbsResult.m_files.length,
     });
-    return res.render("bbs/detail", { bbs: bbsResult, files: fileResult });
   } catch (err) {
     console.error(err);
     return res.send("SQL Error");

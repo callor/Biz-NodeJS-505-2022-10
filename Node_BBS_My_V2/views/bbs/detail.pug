@@ -1,0 +1,18 @@
+extends ../layout 
+
+block content
+    div= bbs.b_date
+    div= bbs.b_time 
+    div= bbs.b_writer 
+    div= bbs.b_subject 
+    div= bbs.b_content
+    each file in files
+        div= file.f_original_name 
+        div= file.f_save_name
+        div 
+            img(src=`/uploads/${file.f_save_name}`, width=`200px`)
+
+    div
+        a(href=`/bbs/delete/${bbs.b_seq}`) 삭제하기
+
+

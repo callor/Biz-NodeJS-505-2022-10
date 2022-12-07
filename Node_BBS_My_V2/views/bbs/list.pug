@@ -1,0 +1,25 @@
+extends ../layout 
+
+block content
+    table
+        thead
+            tr
+                th SEQ
+                th 작성일자
+                th 작성시각
+                th 작성자
+                th 제목
+                th 조회수
+        tbody 
+            each bbs in bbsList 
+                tr
+                    td= bbs.b_seq
+                    td= bbs.b_date 
+                    td= bbs.b_time 
+                    td= bbs.b_writer 
+                    td
+                        a(href=`/bbs/detail/${bbs.b_seq}`) #{bbs.b_subject} ( #{bbs.m_files.length} )
+                    td= bbs.b_count 
+
+    div
+        a(href="/bbs/insert") 글쓰기
