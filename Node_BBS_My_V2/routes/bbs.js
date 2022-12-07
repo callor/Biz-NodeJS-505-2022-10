@@ -27,7 +27,7 @@ const router = express.Router();
  * 그러나, 그렇지 않는 경우가 발생하고, 경고성 오류가 난다
  *
  * 이러한 경우를 방지하기 위하여
- * express 에서는 res... 코를 반드시 return 문과 함께 사용하도록 한다
+ * express 에서는 res... 코드를 반드시 return 문과 함께 사용하도록 한다
  */
 router.get("/", async (req, res) => {
   try {
