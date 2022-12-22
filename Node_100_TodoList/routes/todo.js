@@ -62,18 +62,18 @@ router.delete("/delete/:id", async (req, res, next) => {
 
 router.put("/complete/:id", async (req, res, next) => {
   const id = req.params.id;
-  //   try {
-  const todo = await TODO.findByPk(id);
-  console.log(todo);
-  await TODO.update(
-    { ...todo, e_date: todo.e_date ? "" : "000" },
-    { where: { id } }
-  );
-  return next();
-  //   } catch (error) {
-  //     console.log(error);
-  //     return res.json({ error: "업데이트 오류" });
-  //   }
+  try {
+    const todo = await TODO.findByPk(id);
+    console.log(todo);
+    await TODO.update(
+      { ...todo, e_date: todo.e_date ? "" : "000" },
+      { where: { id } }
+    );
+    return next();
+  } catch (error) {
+    console.log(error);
+    return res.json({ error: "업데이트 오류" });
+  }
 });
 
 /**
