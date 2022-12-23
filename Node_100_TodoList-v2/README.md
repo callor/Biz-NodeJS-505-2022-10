@@ -27,3 +27,8 @@ sequelize-auto --database todo --host localhost --user root --pass '!Biz8080'
 - `POST /todo/insert` : 데이터 추가
 - `PUT /todo/update` : 데이터 업데이트
 - `DELETE /todo/delete` : 데이터 삭제
+
+## NodeJS Server 와 React Client 통합
+
+- React 프로젝트를 NodeJS 프로젝트에 복사
+- `react-client` 로 이름변경

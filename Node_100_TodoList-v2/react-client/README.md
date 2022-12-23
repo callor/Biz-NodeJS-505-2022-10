@@ -37,3 +37,25 @@ script : {
     "linux" : "export PORT=5000 && react-script start",
 }
 ```
+
+## React 프로젝트 자동 빌드 하기
+
+- NodeJS 와 React 를 연동하면, React 항상 Build 가 된 상태로 유지를 해야한다
+- React 소스코드를 변경하면, 변경한 내용이 build 에 자동 반영이 되지 않는다
+- nodemon 을 사용하여 자동 빌드를 실행하자
+
+## nodemon 을 사용하여 자동 빌드하기
+
+- `nodemon ignore` 만들기 = >`nodemon.json` 파일 만들기 : nodemon은 파일이 저장되면 항상 자동으로 재 실행된다. 이때 재 실행되는 것을 방지하는 설정
+
+```json
+{
+  "ignore": ["build", "nodemon.json"]
+}
+```
+
+- nodemon 을 자동 빌드 옵션으로 실행하기
+
+```bash
+nodemon --exec "react-scripts build"
+```
