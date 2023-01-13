@@ -22,6 +22,8 @@ CREATE TABLE tbl_mybooks (
 	my_oprice	INT,	
 	PRIMARY KEY(my_username, my_isbn)	
 );
+
+ALTER TABLE tbl_mybooks DROP constraint f_users;
 DROP TABLE tbl_users;
 CREATE TABLE tbl_users(
 	username	VARCHAR(15)	NOT NULL	PRIMARY KEY,
@@ -54,8 +56,14 @@ ADD CONSTRAINT f_users -- FK 이름(임의로)
 FOREIGN KEY (my_username) -- N 테이블의 연결 칼럼
 REFERENCES tbl_users(username); -- 1 테이블 정보
 
-
-
+INSERT INTO tbl_users
+(username, password, u_level,u_name,u_nickname)
+VALUES
+('callor','12341234',0,'홍길동','길동이');
+INSERT INTO tbl_users
+(username, password, u_level,u_name,u_nickname)
+VALUES
+('callor88','12341234',0,'성춘향','춘향이');
 
 
 

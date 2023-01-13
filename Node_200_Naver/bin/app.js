@@ -26,9 +26,9 @@ import bookRouter from "../routes/book.js";
 // create express framework
 const app = express();
 
-// DB.sequelize.sync({ force: true }).then((dbConn) => {
-//   console.log(dbConn.options.host, dbConn.config.database, "DB Connection OK");
-// });
+DB.sequelize.sync({ force: true }).then((dbConn) => {
+  console.log(dbConn.options.host, dbConn.config.database, "DB Connection OK");
+});
 
 // Disable the fingerprinting of this web technology.
 app.disable("x-powered-by");
