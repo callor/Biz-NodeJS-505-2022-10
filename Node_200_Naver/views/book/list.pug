@@ -2,11 +2,20 @@ extends ../layout
 
 block content
     .w3-container.w3-padding-24
-        section.w3-container
+        section.w3-container.book.main
             .w3-card-4
                 header.w3-container.w3-center.w3-sand.w3-padding-16
-                    input.w3-input.w3-border.w3-round-large
+                    form
+                        input(name="search",placeholder="검색어를 입력후 Enter...").w3-input.w3-border.w3-round-large
                 article.w3-container.w3-padding-16
-                    p ipsum dolor sit amet consectetur adipisicing elit. Laudantium non beatae et nostrum consequatur dolorum quod harum vel earum vero maiores eaque ex, quia unde optio dolore esse eligendi corrupti?
+                    ul.w3-ul
+                        each BOOK in BOOKS
+                            li
+                                span.w3-padding-16.w3-border 
+                                    img(width="50px",height="50px",src=`${BOOK.image}`)
+                                span.w3-text-blue.w3-margin.book.title #{BOOK.title}
+                                span.book.author #{BOOK.author}
+                                span.book.publisher #{BOOK.publisher}
+
                 footer.w3-container.w3-center.w3-sand.w3-padding-16
                     address copyRightn &copy; callor@callor.com
