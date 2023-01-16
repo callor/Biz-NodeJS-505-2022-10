@@ -7,9 +7,15 @@ html
     title= title
     link(rel="stylesheet", href="https://www.w3schools.com/w3css/4/w3.css")
     link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/nav.css')
+    link(rel='stylesheet', href='/css/user.css')
+    
     script(src="/js/main.js")
+    script(src="/js/main_nav.js")
+
   body
-    header.w3-container.w3-green.w3-center
+    header.w3-container.w3-green.w3-center.w3-padding-24
       h1 나의 독서록
       p 네이버 API 를 이용한 도서 정보 확인과 도서록 작성
+    include nav.pug
     block content

@@ -41,10 +41,9 @@ import { 변수, 함수 } from "모듈.js";
 export default { 변수1, 변수2, 함수1, 함수2 };
 ```
 
-- 한번에 import 하여 사용하기
-- 이때 import 하는 이름은 import 하는 곳에서 임의로 작성할수 있다
+### 한번에 import 하여 사용하기
 
-### 모아서 한번에 import 하기
+- 이때 import 하는 이름은 import 하는 곳에서 임의로 작성할수 있다
 
 ```js
 import 내맘대로 from "모듈.js";
