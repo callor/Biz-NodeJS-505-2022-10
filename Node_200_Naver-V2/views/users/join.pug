@@ -5,10 +5,22 @@ block content
         section.w3-card-4
             header.w3-container.w3-sand.w3-center
                 h3.w3-green.w3-round.w3-padding-small 회원가입
+                    if(ERROR.CODE != 0)
+                        h5.w3-red.w3-padding-small.w3-round #{ERROR.MESSAGE}
+
             form(method="POST").w3-container.w3-padding-16.w3-center
-                input(placeholder="USERNAME",name="username").w3-input
-                input(placeholder="비밀번호",name="password",type="password").w3-input
+                input(placeholder="USERNAME",name="username",value=`${USER.username}`).w3-input
+                if(ERROR.CODE == 1)
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+
+                input(placeholder="비밀번호",name="password",type="password",value=`${USER.password}`).w3-input
+                if(ERROR.CODE == 2)
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+                   
                 input(placeholder="비밀번호 확인",name="re_password",type="password").w3-input
+                if(ERROR.CODE == 3 || ERROR.CODE == 4)
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+
                 input(placeholder="실제이름",name="u_name").w3-input
                 input(placeholder="닉네임",name="u_nickname").w3-input
                 input(placeholder="이메일",name="u_email",type="email").w3-input
