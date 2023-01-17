@@ -1,0 +1,23 @@
+nav.main {
+  margin: 0;
+  padding: 0 20px;
+}
+nav.main ul {
+  display: flex;
+  list-style: none;
+}
+
+nav.main li {
+  padding: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+nav.main li:hover {
+  background-color: #aaa;
+  color: black;
+}
+
+nav.main li:nth-of-type(4) {
+  margin-left: auto;
+}
