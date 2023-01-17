@@ -7,6 +7,8 @@ block content
                 h3.w3-green.w3-round.w3-padding-small 로그인
                     if(ERROR.CODE)
                         h5.w3-red.w3-padding-small.w3-round #{ERROR.MESSAGE}
+                    if(LOGIN_MSG.LOGIN)
+                        h5.w3-orange.w3-padding-small.w3-round 로그인이 필요한 서비스 입니다
 
             form(method="POST").w3-container.w3-padding-16.w3-center
                 input(placeholder="USERNAME",name="username",value=`${USER.username}`).w3-input

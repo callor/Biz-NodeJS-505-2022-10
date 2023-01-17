@@ -25,6 +25,9 @@ block content
                 div
                     input(name="price", value=`${BOOK.price}`).w3-input.w3-border
                 div
-                    input(name="odate", placeholder="구입일").w3-input.w3-border
+                    input(name="odate", placeholder="구입일",value=`${BOOK.odate}`,type="date").w3-input.w3-border
                 div 
-                    button.w3-button.w3-blue.w3-bar 확인 및 저장
+                    if user
+                        button.w3-button.w3-blue.w3-bar 확인 및 저장
+                    else 
+                        button(type="button").w3-button.w3-gray.w3-bar 확인

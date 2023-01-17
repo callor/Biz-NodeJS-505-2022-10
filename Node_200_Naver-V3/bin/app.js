@@ -27,6 +27,10 @@ import indexRouter from "../routes/index.js";
 import usersRouter from "../routes/users.js";
 import bookRouter from "../routes/book.js";
 
+// API router
+import userAPIRouter from "../routes/api/user_api.js";
+import bookAPIRouter from "../routes/api/book_api.js";
+
 // create express framework
 const app = express();
 
@@ -88,6 +92,9 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/user", usersRouter);
 app.use("/book", bookRouter);
+
+app.use("/api/user", userAPIRouter);
+app.use("/api/book", bookAPIRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

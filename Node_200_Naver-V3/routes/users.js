@@ -20,8 +20,15 @@ router.post("/join", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
+  // ?error=LOGIN 요청을 하면
+  // LOGIN_MSG = {"LOGIN":"LOGIN"}
+  const LOGIN_MSG = { [req.query.error]: req.query.error };
   const user = { username: "", password: "", re_password: "" };
-  return res.render("users/login", { ERROR: { CODE: 0 }, USER: user });
+  return res.render("users/login", {
+    ERROR: { CODE: 0 },
+    USER: user,
+    LOGIN_MSG,
+  });
 });
 
 router.post("/login", async (req, res) => {

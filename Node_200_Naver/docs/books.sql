@@ -70,4 +70,19 @@ SELECT * FROM tbl_mybooks;
 SELECt * FROM tbl_users;
 DESC tbl_users;
 
+SHOW TABLES;
+SELECT * FROM sessions;
+
+SELECT U.username,U.u_name, 
+		M.my_isbn,B.title, B.author,B.publisher, M.my_odate
+FROM  tbl_users U
+	LEFT JOIN tbl_mybooks M
+		ON U.username = M.my_username
+	LEFT JOIN tbl_books B
+		ON M.my_isbn = B.isbn
+WHERE U.username = 'callor';        
+
+
+
+
 

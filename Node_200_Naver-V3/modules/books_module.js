@@ -7,7 +7,7 @@ const MY_BOOKS = DB.models.tbl_mybooks;
 
 export const bookInput = async (book, user) => {
   const my_book = {
-    my_username: user.username,
+    my_username: user?.username, // 로그인 정보가 없으면 null 값
     my_isbn: book.isbn,
     my_odate: book.odate,
     my_oprice: book.discount,
@@ -38,6 +38,11 @@ export const bookInput = async (book, user) => {
       throw new Error(JSON.stringify(book_error.BOOK_INSERT_ERROR));
     }
   }
+
+  // 혹시 로그인 정보가 누락되어 사용자 정보가 없으면
+  // my_books 정보를 저장하지 않도록 하기
+  if (!user?.username) return false;
+
   // 내(user) 도서 정보 저장하기
   try {
     await MY_BOOKS.create(my_book);
@@ -60,4 +65,26 @@ export const bookInput = async (book, user) => {
   }
 };
 
-export default { bookInput };
+export const getMyBooks = async (user) => {
+  const username = user.username;
+  console.log("MyBooks", user);
+  let myBooks = null;
+  try {
+    myBooks = await MY_BOOKS.findAll({
+      where: { my_username: username },
+      include: "my_isbn_tbl_book",
+    });
+  } catch (e) {
+    console.log(e);
+    throw new Error("MyBook Select 오류");
+  }
+
+  console.log(myBooks);
+
+  const myBooksInfo = myBooks.map((book) => {
+    return book.my_isbn_tbl_book;
+  });
+  return myBooksInfo;
+};
+
+export default { bookInput, getMyBooks };
