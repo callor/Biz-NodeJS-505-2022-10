@@ -40,3 +40,22 @@ export const join_error = {
     MESSAGE: "* 비밀번호와 비밀번호 확인이 일치하지 않습니다",
   },
 };
+
+export const login_error = {
+  REQ_USERNAME: {
+    CODE: "REQ_USERNAME",
+    MESSAGE: "* USERNAME 은 반드시 입력해야 합니다",
+  },
+  MATCH_USERNAME: {
+    CODE: "REQ_USERNAME",
+    MESSAGE: "* 가입되지 않은 USERNAME 입니다",
+  },
+  REQ_PASSWORD: {
+    CODE: "REQ_PASSWORD",
+    MESSAGE: "* 비밀번호를 입력해 주세요",
+  },
+  MATCH_PASSWORD: {
+    CODE: "MATCH_PASSWORD",
+    MESSAGE: "* 비밀번호가 일치하지 않습니다 다시확인해 주세요",
+  },
+};

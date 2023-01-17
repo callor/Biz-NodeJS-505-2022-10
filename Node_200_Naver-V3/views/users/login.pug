@@ -1,0 +1,37 @@
+extend ../layout
+
+block content
+    .w3-container.w3-padding-24.user.login
+        section.w3-card-4
+            header.w3-container.w3-sand.w3-center
+                h3.w3-green.w3-round.w3-padding-small 로그인
+                    if(ERROR.CODE)
+                        h5.w3-red.w3-padding-small.w3-round #{ERROR.MESSAGE}
+
+            form(method="POST").w3-container.w3-padding-16.w3-center
+                input(placeholder="USERNAME",name="username",value=`${USER.username}`).w3-input
+                if(ERROR.CODE == "REQ_USERNAME")
+                    div.w3-text-red.w3-left #{ERROR.MESSAGE}
+
+                input(placeholder="비밀번호",name="password",type="password",value=`${USER.password}`).w3-input
+                if(ERROR.CODE == "REQ_PASSWORD")
+                    div.w3-text-red.w3-left #{ERROR.MESSAGE}
+                   
+                button().w3-button.w3-margin-top.w3-teal.w3-block.w3-round 로그인
+            
+            script.
+                const error_code = `#{ERROR.CODE}`
+                switch(error_code) {
+                    case "REQ_USERNAME" :
+                        document.querySelector("input[name='username']")?.select()
+                        break;
+                    case "REQ_PASSWORD" :
+                        document.querySelector("input[name='password']")?.select()
+                        break;
+                    case "MATCH_USERNAME" :
+                        document.querySelector("input[name='username']")?.select()
+                        break;
+                    case "MATCH_PASSWORD" :
+                        document.querySelector("input[name='password']")?.select()
+                        break;
+                }

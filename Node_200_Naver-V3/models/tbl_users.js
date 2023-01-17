@@ -9,7 +9,7 @@ const tbl_users = (sequelize) => {
         primaryKey: true,
       },
       password: {
-        type: Sequelize.DataTypes.STRING(13),
+        type: Sequelize.DataTypes.STRING(255),
         allowNull: false,
       },
       u_name: {

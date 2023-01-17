@@ -65,5 +65,9 @@ INSERT INTO tbl_users
 VALUES
 ('callor88','12341234',0,'성춘향','춘향이');
 
+SELECT * FROM tbl_books;
+SELECT * FROM tbl_mybooks;
+SELECt * FROM tbl_users;
+DESC tbl_users;
 
 
