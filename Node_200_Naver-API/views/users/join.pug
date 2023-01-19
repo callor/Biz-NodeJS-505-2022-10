@@ -1,0 +1,50 @@
+extend ../layout
+
+block content
+    .w3-container.w3-padding-24.user.login
+        section.w3-card-4
+            header.w3-container.w3-sand.w3-center
+                h3.w3-green.w3-round.w3-padding-small 회원가입
+                    if(ERROR.CODE)
+                        h5.w3-red.w3-padding-small.w3-round #{ERROR.MESSAGE}
+
+            form(method="POST").w3-container.w3-padding-16.w3-center
+                input(placeholder="USERNAME",name="username",value=`${USER.username}`).w3-input
+                if(ERROR.CODE == "REQ_USERNAME")
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+
+                input(placeholder="비밀번호",name="password",type="password",value=`${USER.password}`).w3-input
+                if(ERROR.CODE == "REQ_PASSWORD")
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+                   
+                input(placeholder="비밀번호 확인",name="re_password",type="password").w3-input
+                if(ERROR.CODE == "REQ_RE_PASSWORD")
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+
+                if(ERROR.CODE == "MATCH_PASSWORD")
+                    div.w3-text-red.w3-left * #{ERROR.MESSAGE}
+
+                input(placeholder="실제이름",name="u_name").w3-input
+                input(placeholder="닉네임",name="u_nickname").w3-input
+                input(placeholder="이메일",name="u_email",type="email").w3-input
+                input(placeholder="전화번호",name="u_tel",type="phone").w3-input
+                input(placeholder="주소",name="u_addr").w3-input
+                button().w3-button.w3-margin-top.w3-teal.w3-block.w3-round 회원가입
+            
+            script.
+                const error_code = `#{ERROR.CODE}`
+                switch(error_code) {
+                    case "REQ_USERNAME" :
+                        document.querySelector("input[name='username']")?.select()
+                        break;
+                    case "REQ_PASSWORD" :
+                        document.querySelector("input[name='password']")?.select()
+                        break;
+                    case "REQ_RE_PASSWORD" :
+                        document.querySelector("input[name='re_password']")?.select()
+                        break;
+                    case "MATCH_PASSWORD" :
+                        document.querySelector("input[name='password']")?.select()
+                        break;
+
+                }

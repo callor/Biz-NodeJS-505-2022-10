@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+
+section.book.main .w3-card-4 {
+  width: 70%;
+  margin: 20px auto;
+  border-radius: 15px !important;
+}
+
+section.book.main header {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+section.book.main footer {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+section.book.main li {
+  display: flex;
+  align-items: center;
+}
+
+section.book.main span.book {
+  width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 10px;
+  padding: 10px 5px;
+}
+
+section.book.main span.book.title {
+  width: 270px;
+  cursor: pointer;
+}
+
+section.book.main span.book.title:hover {
+  background-color: #ddd;
+}

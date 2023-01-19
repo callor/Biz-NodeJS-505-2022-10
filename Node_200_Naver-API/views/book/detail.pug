@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet",href="/css/book_detail.css")
+    script(src="/js/book_detail.js")
+    .w3-container.w3-padding-24
+        section.w3-container.w3-card-4.w3-padding-16.book.detail
+            header.w3-container.w3-sand.w3-center 
+                h3 #{BOOK.title}
+            form(method="POST",action="/book/insert")
+                div
+                    input(name="isbn", value=`${BOOK.isbn}`).w3-input.w3-border
+                div
+                    input(name="title", value=`${BOOK.title}`).w3-input.w3-border
+                div
+                    input(name="author", value=`${BOOK.author}`).w3-input.w3-border
+                div
+                    input(name="publisher", value=`${BOOK.publisher}`).w3-input.w3-border
+                div
+                    input(name="link", value=`${BOOK.link}`).w3-input.w3-border
+                div
+                    input(name="image", value=`${BOOK.image}`).w3-input.w3-border
+                div
+                    input(name="discount", value=`${BOOK.discount}`).w3-input.w3-border
+                div
+                    input(name="price", value=`${BOOK.price}`).w3-input.w3-border
+                div
+                    input(name="odate", placeholder="구입일",value=`${BOOK.odate}`,type="date").w3-input.w3-border
+                div 
+                    if user
+                        button.w3-button.w3-blue.w3-bar 확인 및 저장
+                    else 
+                        button(type="button").w3-button.w3-gray.w3-bar 확인
