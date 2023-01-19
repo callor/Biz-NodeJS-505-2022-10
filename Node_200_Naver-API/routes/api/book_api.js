@@ -24,7 +24,15 @@ router.get("/my/:username", async (req, res) => {
   return res.json(myBooks);
 });
 
-router.post("/input", (req, res) => {});
+router.post("/insert", (req, res) => {
+  const { username, isbn } = req.body;
+
+  // isbn 으로 다시 서버에 fetch 를 하여 도서정보를 받아오고
+  // 그 정보를 tbl_books 에 insert
+
+  // book 정보를 통째로 client 에서 받는다면
+  // 그 정보를 그대로 tbl_books 에 insert
+});
 router.get("/detail/:isbn", (req, res) => {});
 router.get("/user/:uername", (req, res) => {});
 
