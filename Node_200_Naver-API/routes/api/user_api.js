@@ -16,7 +16,8 @@ router.post("/login", async (req, res) => {
     return res.json(loginUser);
   } catch (err) {
     console.log(err?.message);
-    return res.json(JSON.parse(err?.message));
+    // return res.json(JSON.parse(err?.message));
+    return res.send(err?.message);
   }
 });
 
@@ -28,6 +29,11 @@ router.get("/session", (req, res) => {
 });
 
 router.post("/join", (req, res) => {});
+
+router.get("/logout", (req, res) => {
+  req.session.user = undefined;
+  return res.json(null);
+});
 
 // 로그인한 사용자 정보 get 하기
 router.get("/info", (req, res) => {});

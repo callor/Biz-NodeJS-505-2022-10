@@ -12,10 +12,10 @@ router.get("/search", async (req, res) => {
   let resultBooks;
   try {
     resultBooks = await getBooks(search);
+    return res.json(resultBooks);
   } catch (e) {
     return res.json(JSON.parse(e.message));
   }
-  return res.json(resultBooks);
 });
 
 router.get("/my/:username", async (req, res) => {
