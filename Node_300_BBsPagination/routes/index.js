@@ -38,7 +38,9 @@ router.all("*", async (req, res, next) => {
   pagiNation.offset = (pagiNation.pageNum - 1) * pagiNation.listLimit;
 
   // 화면하단 Page Nav 를 표현할 개수중에 시작 Nav Num 계산하기
-  pagiNation.startNavNum = Math.floor(pagiNation.pageNum / 2);
+  pagiNation.startNavNum =
+    pagiNation.pageNum - Math.floor(pagiNation.pageNavCount / 2);
+
   pagiNation.startNavNum =
     pagiNation.startNavNum < 1 ? 1 : pagiNation.startNavNum;
 
@@ -51,7 +53,7 @@ router.get("/", async (req, res, next) => {
     limit: pagiNation.listLimit,
     offset: pagiNation.offset,
   });
-  return res.json({ pagiNation, result });
+  return res.json({ pagiNation, bbsList: result });
 
   // res.render("index", { title: "callor.com Express" });
 });

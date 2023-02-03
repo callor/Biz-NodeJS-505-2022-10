@@ -1,0 +1,37 @@
+table.bbs.list {
+  width: 80%;
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+table.bbs.list th,
+table.bbs.list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+table.bbs.list tr:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+div.pageNavBar {
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+  justify-content: center;
+}
+
+div.pageNavBar a {
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #999;
+}
+
+div.pageNavBar a.active {
+  background-color: rgb(81, 81, 218);
+  color: white;
+}
