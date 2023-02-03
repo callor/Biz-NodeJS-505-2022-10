@@ -73,6 +73,11 @@ DESC tbl_users;
 SHOW TABLES;
 SELECT * FROM sessions;
 
+-- TRUCATE 명령
+-- table 을 Drop 하고 다시 Create
+TRUNCATE table sessions;
+DESC sessions;
+
 SELECT U.username,U.u_name, 
 		M.my_isbn,B.title, B.author,B.publisher, M.my_odate
 FROM  tbl_users U
@@ -82,6 +87,7 @@ FROM  tbl_users U
 		ON M.my_isbn = B.isbn
 WHERE U.username = 'callor';        
 
+DESC tbl_books;
 
 
 
