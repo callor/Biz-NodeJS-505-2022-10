@@ -11,7 +11,7 @@ const loadingBox = {
 const BBsLoding = () => {
   return (
     <div style={loadingBox}>
-      <ClipLoader size={200} />
+      <ClipLoader size={200} color={"#1abbc9"} />
     </div>
   );
 };
