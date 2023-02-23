@@ -19,3 +19,12 @@ CREATE TABLE tbl_bbs (
 		DEFAULT CURRENT_TIMESTAMP 
         ON UPDATE CURRENT_TIMESTAMP
 );
+
+DESC tbl_bbs;
+SELECT COUNT(*) FROm tbl_bbs;
+SELECT * FROM tbl_bbs LIMIT 30, 10;
+
+
+
+
+

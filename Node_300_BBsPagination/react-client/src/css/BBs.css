@@ -17,6 +17,24 @@ table.bbs.list tr:hover {
   cursor: pointer;
 }
 
+div.search-box {
+  display: flex;
+  width: 50%;
+  margin: 5px auto;
+}
+
+div.search-box * {
+  margin: 10px;
+  padding: 8px;
+}
+
+div.search-box select {
+  flex: 1;
+}
+div.search-box input {
+  flex: 3;
+}
+
 div.pageNavBar {
   display: flex;
   width: 80%;

@@ -12,9 +12,9 @@ const MainNav = () => {
           <NavLink to="/notice">공지사항</NavLink>
         </li>
         <li>
-          <NavLink to="/free">자유게시판</NavLink>
+          <NavLink to="/bbs/1">자유게시판</NavLink>
         </li>
-        <li>
+        <li class="main nav login">
           <NavLink to="/user/login">로그인</NavLink>
         </li>
         <li>

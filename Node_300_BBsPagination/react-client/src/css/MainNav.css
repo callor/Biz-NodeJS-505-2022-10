@@ -8,6 +8,10 @@ nav.main ul {
   display: flex;
 }
 
+nav.main li.login {
+  margin-left: auto;
+}
+
 nav.main a {
   display: inline-block;
   text-decoration: none;
