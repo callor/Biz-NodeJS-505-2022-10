@@ -27,7 +27,7 @@ export const BBsContextProvider = ({ children }) => {
     eng: orderList[0].eng,
     kor: orderList[0].kor,
   });
-  const [filterValue, setfilterValue] = useState({
+  const [filterValue, setFilterValue] = useState({
     eng: filterList[0].eng,
     kor: filterList[0].kor,
   });
@@ -38,7 +38,7 @@ export const BBsContextProvider = ({ children }) => {
     orderValue,
     filterValue,
     setOrderValue,
-    setfilterValue,
+    setFilterValue,
     searchInput,
     setSearchInput,
   };

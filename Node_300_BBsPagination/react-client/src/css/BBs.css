@@ -53,3 +53,8 @@ div.pageNavBar a.active {
   background-color: rgb(81, 81, 218);
   color: white;
 }
+
+.spinner {
+  justify-content: center;
+  align-items: center;
+}

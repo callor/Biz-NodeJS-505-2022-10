@@ -2,7 +2,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import BBsSearch from "./BBsSearch";
 import PageNavi from "./PageNavi";
 
-export const loader = async ({ params }) => {
+export const loader = async ({ params, values }) => {
+  console.log(params.pageNum, values.orderValue, values.filterValue);
   const pageNum = params?.pageNum || 1;
   const listLimit = 5;
   const pageNavCount = 5;
